@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,22 @@
 
     <main>
         <section id="home" class="hero premium-hero">
-            <div class="hero-content">
+            <!-- Background Slider -->
+            <div class="hero-bg-slider">
+                <div class="hero-slide active" style="background-image: url('Image/Sim11.png');"></div>
+                <div class="hero-slide" style="background-image: url('Image/Frenzy Shark/Shark.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('Image/Rampage/ram.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('Image/DarkMage/DarkMage.png');"></div>
+                <div class="hero-slide" style="background-image: url('Image/Nuclear.png');"></div>
+                <div class="hero-slide" style="background-image: url('Image/Para.png');"></div>
+                
+                <div class="hero-overlay"></div>
+                
+                <button class="slider-btn prev-btn" onclick="prevHeroSlide()">&#10094;</button>
+                <button class="slider-btn next-btn" onclick="nextHeroSlide()">&#10095;</button>
+            </div>
+
+            <div class="hero-content" style="z-index: 10;">
                 <div class="hero-badge">Game Developer & Programmer</div>
                 <h1 class="title">พศวีร์<span> พัศดร</span></h1>
                 <p class="description">เปลี่ยนจินตนาการให้กลายเป็นระบบเกมที่สมบูรณ์แบบ<br>เชี่ยวชาญด้าน <strong>Gameplay Programming</strong> และ <strong>Core Systems</strong><br>พร้อมสร้างสรรค์ประสบการณ์การเล่นที่ท้าทายและลื่นไหล</p>
@@ -32,14 +47,6 @@
                     <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                 </div>
             </div>
-            <div class="hero-showcase">
-                <div class="showcase-container">
-                    <div class="sc-card sc-card-3" style="background-image: url('Image/Frenzy Shark/Shark.jpg');"></div>
-                    <div class="sc-card sc-card-2" style="background-image: url('Image/Rampage/ram.jpg');"></div>
-                    <div class="sc-card sc-card-1" style="background-image: url('Image/DarkMage/DarkMage.png');"></div>
-                </div>
-            </div>
-</div>
         </section>
 
         <section id="about" class="about section">

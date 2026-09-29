@@ -160,3 +160,38 @@ window.addEventListener('click', (e) => {
         closeModal(e.target.id);
     }
 });
+
+// Hero Background Slider
+let currentHeroSlide = 0;
+const heroSlides = document.querySelectorAll('.hero-slide');
+let heroSlideInterval;
+
+function showHeroSlide(index) {
+    if(heroSlides.length === 0) return;
+    heroSlides.forEach(slide => slide.classList.remove('active'));
+    
+    if (index >= heroSlides.length) currentHeroSlide = 0;
+    else if (index < 0) currentHeroSlide = heroSlides.length - 1;
+    else currentHeroSlide = index;
+    
+    heroSlides[currentHeroSlide].classList.add('active');
+}
+
+function nextHeroSlide() {
+    showHeroSlide(currentHeroSlide + 1);
+    resetHeroInterval();
+}
+
+function prevHeroSlide() {
+    showHeroSlide(currentHeroSlide - 1);
+    resetHeroInterval();
+}
+
+function resetHeroInterval() {
+    clearInterval(heroSlideInterval);
+    heroSlideInterval = setInterval(nextHeroSlide, 5000);
+}
+
+if(heroSlides.length > 0) {
+    heroSlideInterval = setInterval(nextHeroSlide, 5000);
+}
