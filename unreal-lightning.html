@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unreal Engine VFX System - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav>
+        <div class="logo">Game<span>Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="project-header" style="background-image: url('Image/Unreal/VFX/Lightning/Lightning.png'); background-position: center top;">
+        <div class="project-header-content">
+            <h1 class="project-title">Unreal Engine VFX System</h1>
+            <a href="index.html#projects" class="btn btn-outline" style="background: rgba(0,0,0,0.5);">&larr; กลับหน้าหลัก</a>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="code-section fade-in">
+            <h2 class="project-section-title">VFX Details</h2>
+            <p class="project-text">
+                สร้างเอฟเฟกต์กระแสไฟฟ้าด้วย Niagara System โดยแบ่ง Layer การทำงานออกเป็นหลาย Emitter เช่น สายฟ้าหลัก Lightning Beams สะเก็ดไฟ Sparks และละอองพลังงาน เพื่อสร้างมิติและความซับซ้อนให้เอฟเฟกต์ดูสมจริงยิ่งขึ้น
+            </p>
+            <div style="margin-bottom: 3rem; text-align: center;">
+                <img src="Image/Unreal/VFX/Lightning/Lightning1.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+
+            <p class="project-text">
+                ผสานการทำงานของ VFX เข้ากับแอนิเมชันตัวละครผ่าน Animation Montage โดยใช้ Anim Notifies เพื่อควบคุมจังหวะการเปิด-ปิด ของเอฟเฟกต์ให้สัมพันธ์กับท่าทางที่ถูกไฟช็อตได้อย่างสมบูรณ์แบบ
+            </p>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <img src="Image/Unreal/VFX/Lightning/Lightning2.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+            
+            <p class="project-text">
+                ประยุกต์ใช้ Skeletal Mesh Data Interface เพื่อให้สายฟ้าและเอฟเฟกต์ต่างๆ วิ่งไปตามพื้นผิว หรือกระดูก ของตัวละครได้อย่างแม่นยำ ทำให้เอฟเฟกต์ตอบสนองต่อรูปร่างและการเคลื่อนไหวของตัวละครแบบไดนามิก
+            </p>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <img src="Image/Unreal/VFX/Lightning/Lightning3.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

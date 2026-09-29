@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rampage - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav>
+        <div class="logo">Game<span>Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="project-header" style="background-image: url('Image/Rampage/ram.jpg');">
+        <div class="project-header-content">
+            <span class="project-role-badge">Gameplay Programmer</span>
+            <h1 class="project-title">The Rampage</h1>
+            <a href="index.html#projects" class="btn btn-outline" style="background: rgba(0,0,0,0.5);">&larr; กลับหน้าหลัก</a>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="project-grid-layout">
+            <!-- Left Column: Details -->
+            <div class="project-main-info fade-in">
+                <h2 class="project-section-title">Overview</h2>
+                <p class="project-text">
+                    เกม 2D Action Hack'n Slash การเอาชีวิตรอดในโลกในวันสิ้นโลก 
+                    ใน Project นี้ผมได้รับหน้าที่หลักในการพัฒนาระบบเกมเพลย์ทั้งหมด (Core Gameplay Systems) ด้วย C# และ Monogame Framework เพื่อให้การควบคุมตัวละครและการต่อสู้มีความลื่นไหลและสนุกสนาน
+                </p>
+
+                <h2 class="project-section-title" style="margin-top: 3rem;">Key Systems Developed</h2>
+                <ul class="feature-list">
+                    <li><strong>Player System:</strong> พัฒนาระบบการเคลื่อนไหว (วิ่ง, กระโดด, พุ่งตัว) และจัดการ State/Animation 2D (Idle, Run, Jump, Attack, Die)</li>
+                    <li><strong>Combat System:</strong> สร้างระบบโจมตีสกิล และระบบตรวจสอบ Hitbox แบบ Rectangle Bounding Box</li>
+                    <li><strong>Enemy & Boss System:</strong> เขียนระบบพฤติกรรมของศัตรู (ซอมบี้, หมึก) รวมถึงบอส Malraku ที่มีรูปแบบการโจมตีเฉพาะตัว</li>
+                    <li><strong>Environment System:</strong> สร้างฉากคัตซีน และระบบ Parallax Scrolling เพื่อให้ฉากหลังเคลื่อนที่อย่างมีมิติ</li>
+                    <li><strong>Audio System:</strong> ผสานเอฟเฟกต์เสียงต่างๆ ทั้งการฟันดาบ, สกิล, เสียงเดิน, และจังหวะหัวใจเต้นเมื่อ HP ต่ำ</li>
+                </ul>
+                
+                <!-- Gameplay Video -->
+                <h2 class="project-section-title" style="margin-top: 3rem;">Gameplay Video</h2>
+                <div style="margin-bottom: 3rem; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                    <video width="100%" controls autoplay muted loop style="display: block;">
+                        <source src="Image/Rampage/RamPageVDO.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <!-- Extra Images Gallery if exists -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+                    <img src="Image/Rampage/ram4.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                    <img src="Image/Rampage/ram5.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar Info -->
+            <div class="project-sidebar fade-in">
+                <div class="sidebar-item">
+                    <h4>Role</h4>
+                    <p style="color: var(--text-primary);">Gameplay Programmer</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Technologies</h4>
+                    <div class="tech-stack" style="flex-wrap: wrap;">
+                        <span>Monogame</span>
+                        <span>C#</span>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Genre</h4>
+                    <p style="color: var(--text-primary);">2D Action / Hack'n Slash</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Section -->
+        <div class="code-section fade-in">
+            <h2 class="project-section-title">Challenges & Solutions</h2>
+            <p class="project-text">
+                <strong>ระบบ Combat และ Hit Detection:</strong> ในเกมแนว 2D Hack'n Slash การต่อสู้ต้องมีความแม่นยำและสัมพันธ์กับเฟรมแอนิเมชัน
+                ผมได้เขียนระบบตรวจสอบการชนด้วย <strong>Rectangle Bounding Box</strong> ในภาษา C# โดยแยก <code>_playerHitbox</code> สำหรับรับดาเมจ และ <code>_attackHitbox</code> สำหรับการสร้างดาเมจ ซึ่งจะคำนวณและสร้าง Hitbox ขึ้นมาเฉพาะเฟรมแอนิเมชันที่ตัวละครกำลังง้างฟันจริงๆ เท่านั้น เพื่อให้ระบบฟิสิกส์การโจมตีมีความสมจริง
+            </p>
+            
+            <h3 style="color: var(--text-primary); margin: 2rem 0 1rem 0;">ตัวอย่างโค้ด Logic: Hitbox Detection (C# Monogame)</h3>
+            <pre class="code-snippet"><code>_playerHitbox = <span class="code-keyword">new</span> <span class="code-type">Rectangle</span>((<span class="code-keyword">int</span>)_position.X + <span class="code-number">60</span>, (<span class="code-keyword">int</span>)_position.Y + <span class="code-number">50</span>, <span class="code-number">110</span>, <span class="code-number">150</span>);
+
+<span class="code-keyword">if</span> (_isAttacking) {
+    <span class="code-keyword">if</span> (!_isFlip)
+        _attackHitbox = <span class="code-keyword">new</span> <span class="code-type">Rectangle</span>((<span class="code-keyword">int</span>)_position.X + <span class="code-number">150</span>, (<span class="code-keyword">int</span>)_position.Y + <span class="code-number">50</span>, <span class="code-number">120</span>, <span class="code-number">120</span>);
+    <span class="code-keyword">else</span>
+        _attackHitbox = <span class="code-keyword">new</span> <span class="code-type">Rectangle</span>((<span class="code-keyword">int</span>)_position.X - <span class="code-number">50</span>, (<span class="code-keyword">int</span>)_position.Y + <span class="code-number">50</span>, <span class="code-number">130</span>, <span class="code-number">120</span>);
+} <span class="code-keyword">else</span> {
+    _attackHitbox = <span class="code-keyword">new</span> <span class="code-type">Rectangle</span>(<span class="code-number">0</span>, <span class="code-number">0</span>, <span class="code-number">0</span>, <span class="code-number">0</span>);
+}
+
+<span class="code-keyword">if</span> (_attackHitbox.<span class="code-function">Intersects</span>(enemy._hitbox)) {
+    enemy.<span class="code-function">TakeDamage</span>(_damage);
+    _hitSoundInstance.<span class="code-function">Play</span>();
+}</code></pre>
+
+            <h3 style="color: var(--text-primary); margin: 3rem 0 1rem 0;">ตัวอย่างโค้ด Logic: Movement & State System</h3>
+            <p class="project-text">
+                การควบคุมตัวละคร 2D Action สิ่งสำคัญคือความลื่นไหลของระบบฟิสิกส์ (Gravity & Velocity) ควบคู่ไปกับการเปลี่ยน State ตัวละคร โค้ดส่วนนี้เป็นการรับ Input ควบคุมการเดินซ้าย-ขวา การกระโดด และจัดการตำแหน่งบนแกน Y เมื่อตัวละครตกถึงพื้น
+            </p>
+            <pre class="code-snippet"><code><span class="code-type">KeyboardState</span> state = <span class="code-type">Keyboard</span>.<span class="code-function">GetState</span>();
+_isRunning = <span class="code-keyword">false</span>;
+
+<span class="code-keyword">if</span> (state.<span class="code-function">IsKeyDown</span>(<span class="code-type">Keys</span>.D)) {
+    _position.X += <span class="code-number">400f</span> * (<span class="code-keyword">float</span>)gameTime.ElapsedGameTime.TotalSeconds;
+    _isRunning = <span class="code-keyword">true</span>;
+}
+<span class="code-keyword">if</span> (state.<span class="code-function">IsKeyDown</span>(<span class="code-type">Keys</span>.A)) {
+    _position.X -= <span class="code-number">400f</span> * (<span class="code-keyword">float</span>)gameTime.ElapsedGameTime.TotalSeconds;
+    _position.X = <span class="code-type">MathHelper</span>.<span class="code-function">Clamp</span>(_position.X, <span class="code-number">0</span>, <span class="code-keyword">float</span>.MaxValue);
+    _isRunning = <span class="code-keyword">true</span>;         
+}
+
+<span class="code-keyword">if</span> (state.<span class="code-function">IsKeyDown</span>(<span class="code-type">Keys</span>.Space) && !_isJumping) {
+    _isJumping = <span class="code-keyword">true</span>;
+    _jumpVelocity = -JumpHeight;
+    _jumpSoundInstance.<span class="code-function">Play</span>();
+}
+
+<span class="code-keyword">if</span> (_isJumping) {
+    _jumpVelocity += Gravity * (<span class="code-keyword">float</span>)gameTime.ElapsedGameTime.TotalSeconds;
+    _position.Y += _jumpVelocity * (<span class="code-keyword">float</span>)gameTime.ElapsedGameTime.TotalSeconds;
+
+    <span class="code-keyword">if</span> (_position.Y >= <span class="code-number">750</span>) {
+        _position.Y = <span class="code-number">750</span>;
+        _isJumping = <span class="code-keyword">false</span>;
+    }
+}</code></pre>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Game Developer. Designed with passion.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

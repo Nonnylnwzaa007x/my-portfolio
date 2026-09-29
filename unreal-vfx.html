@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niagara VFX Portal - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav>
+        <div class="logo">Game<span>Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="project-header" style="background-image: url('Image/Unreal/VFX/Portal/Portal.png');">
+        <div class="project-header-content">
+            <h1 class="project-title">Unreal Engine VFX System</h1>
+            <a href="index.html#projects" class="btn btn-outline" style="background: rgba(0,0,0,0.5);">&larr; กลับหน้าหลัก</a>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="code-section fade-in">
+            <h2 class="project-section-title">VFX Details</h2>
+            <p class="project-text">
+                จุดประสงค์ออกแบบสำหรับการจำลอง portal มีการแสดงใช้ความสมจริงจากหมอกควันเพื่อความสมจริง
+            </p>
+            <p class="project-text">
+                ประมวลผลทางฟิสิกส์ขั้นสูง เช่น การคำนวณ Pressure และ Velocity Advection ผ่านระบบ Grid 3D Gas และแสดงผลขั้นสุดท้ายด้วย Volume Renderer เพื่อให้ได้มวลพลังงานที่มีความลึกและตอบสนองต่อแสงได้จริง
+            </p>
+            <p class="project-text">
+                สร้างระบบเอฟเฟกต์พลังงานโดยใช้การจำลองของไหล 3 มิติ ภายใน Niagara ทำงานแบบ Real-time บน GPU ทั้งระบบเพื่อความสมจริงขั้นสุดและรักษาประสิทธิภาพ
+            </p>
+            <p class="project-text">
+                ทำการแปลงข้อมูล Particle Data ให้กลายเป็นแหล่งกำเนิดของเหลว เพื่อเตรียมส่งต่อเข้าสู่ระบบ 3D Grid
+            </p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; margin-top: 2rem;">
+                <img src="Image/Unreal/VFX/Portal/Portal1.png" style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                <img src="Image/Unreal/VFX/Portal/Portal2.png" style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+            <div style="margin-bottom: 3rem; text-align: center;">
+                <p class="project-text" style="text-align: left;">การออกแบบ particle effect</p>
+                <img src="Image/Unreal/VFX/Portal/Portal3.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

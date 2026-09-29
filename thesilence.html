@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Silence - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav>
+        <div class="logo">Game<span>Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="project-header" style="background-image: url('Image/The Silence/The Silence.png');">
+        <div class="project-header-content">
+            <span class="project-role-badge">Programmer & Sound Designer</span>
+            <h1 class="project-title">The Silence</h1>
+            <a href="index.html#projects" class="btn btn-outline" style="background: rgba(0,0,0,0.5);">&larr; กลับหน้าหลัก</a>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="project-grid-layout">
+            <!-- Left Column: Details -->
+            <div class="project-main-info fade-in">
+                <h2 class="project-section-title">Overview</h2>
+                <p class="project-text">
+                    <strong>The Silence</strong> เป็นเกมแนว Horror Survival ที่เน้นเล่นกับความกลัว และความหลอนประสาทของผู้เล่น
+                    <br><br>
+                    <strong>My Role:</strong> ในโปรเจกต์นี้ผมรับหน้าที่เป็นผู้พัฒนาระบบหลักหลายส่วน ได้แก่ Player Movement, Interactive System, Inventory Hotbar, Flash Light, Camera System, Cutscene, และ Audio System
+                </p>
+
+                <h2 class="project-section-title" style="margin-top: 3rem;">Key Systems Developed</h2>
+                <ul class="feature-list">
+                    <li><strong>Player Movement:</strong> ทำให้ผู้เล่นเคลื่อนไหวได้อย่างที่ควรจะเป็น (เดินหน้า ถอยหลัง ซ้าย ขวา) แบบ First-Person</li>
+                    <li><strong>Interactive System:</strong> ระบบที่ให้ผู้เล่นสามารถ Interact กับ Object หรือ Item ภายในฉากได้</li>
+                    <li><strong>Inventory Hotbar:</strong> ระบบเก็บ Item ภายในเกมและนำมาแสดงผลขึ้นบน Hotbar</li>
+                    <li><strong>Flash Light:</strong> สร้างระบบไฟฉายที่สามารถเปิด/ปิดได้</li>
+                    <li><strong>Camera System:</strong> จัดการมุมกล้องให้อยู่ในรูปแบบ First Person View อย่างสมบูรณ์</li>
+                    <li><strong>Cutscene:</strong> สร้างฉากคัตซีนเล่าเรื่องภายในเกม เช่น Intro Game</li>
+                    <li><strong>Audio System:</strong> ทำการออกแบบเสียงและมิกซ์เสียงภายในเกม (Sound Design) เช่น เสียงเดิน, เสียงเก็บ Item, และเสียงพากย์</li>
+                </ul>
+
+                <!-- Gameplay Video -->
+                <h2 class="project-section-title" style="margin-top: 3rem;">Gameplay</h2>
+                <div style="margin-top: 1.5rem;">
+                    <video width="100%" controls style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                        <source src="Image/The Silence/GamePlay.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar Info -->
+            <div class="project-sidebar fade-in">
+                <div class="sidebar-item">
+                    <h4>Role</h4>
+                    <p style="color: var(--text-primary);">Programmer & Sound Designer</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Technologies</h4>
+                    <div class="tech-stack" style="flex-wrap: wrap;">
+                        <span>Unity 3D</span>
+                        <span>C#</span>
+                        <span>UI Toolkit / Canvas</span>
+                        <span>Audio Mixer</span>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Genre</h4>
+                    <p style="color: var(--text-primary);">Horror Survival (FPS)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Details Section -->
+        <div class="code-section fade-in">
+            <h2 class="project-section-title">Architecture & Mechanics</h2>
+            
+            <h3 style="color: var(--accent-secondary); margin-bottom: 1rem; font-size: 1.5rem;">1. Player Prefab & FPS Camera</h3>
+            <p class="project-text">
+                ผมได้แพ็ก <strong>Player เป็น Prefab</strong> เพื่อให้สะดวกต่อการนำไปใช้งานซ้ำใน Scene ต่างๆ 
+                โดยตั้งค่าให้ <code>Main Camera</code> เป็น Child ของ Player เพื่อบังคับมุมมองแบบ FPS (First-Person Shooter) 
+                ส่วนระบบ UI ต่างๆ (เช่น Health, Anxiety, SkillCheck) จะถูกรวมไว้ใน Canvas ที่ผูกกับตัวผู้เล่น
+            </p>
+            <div style="margin-bottom: 3rem; text-align: center;">
+                <img src="Image/The Silence/The Silence1.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+
+            <h3 style="color: var(--accent-secondary); margin-bottom: 1rem; font-size: 1.5rem;">2. Puzzle System (Drag & Drop UI)</h3>
+            <p class="project-text">
+                ระบบ Puzzle ภายในเกมถูกควบคุมด้วย 2 สคริปต์หลักคือ <code>PuzzleManager</code> และ <code>PuzzlePiece</code> โดยมีฟีเจอร์ที่สำคัญคือ:
+            </p>
+            <ul class="feature-list" style="margin-bottom: 1.5rem;">
+                <li><strong>Drag & Drop UI:</strong> โค้ดมีการใช้ Interfaces ของระบบ UI Unity (<code>IBeginDragHandler</code>, <code>IDragHandler</code>, <code>IEndDragHandler</code>) ทำให้ผู้เล่นสามารถใช้เมาส์คลิกค้างแล้วลากชิ้นส่วน (Image UI) ไปมาบนหน้าจอได้อย่างอิสระ</li>
+                <li><strong>Canvas Scaling:</strong> ตอนลาก (<code>OnDrag</code>) มีการหารค่าด้วย <code>canvas.scaleFactor</code> ทำให้เวลาเอาเกมไปเปิดบนจอขนาดต่างๆ (Resolution ไม่เท่ากัน) เมาส์กับชิ้นส่วนก็ยังวิ่งตรงกันเป๊ะตามสัดส่วนจอ</li>
+                <li><strong>Snapping Logic:</strong> เมื่อผู้เล่นปล่อยคลิกเมาส์ (<code>OnEndDrag</code>) ระบบจะเช็คระยะห่างระหว่าง "ตำแหน่งที่ปล่อย" กับ "ช่องเป้าหมายที่ถูกต้อง (correctSlot)" ถ้าอยู่ใกล้ในระยะ <code>snapDistance</code> ชิ้นส่วนนั้นจะ "ดูด" เข้าไปล็อคทันที (Snapping) แต่ถ้าปล่อยผิดที่ มันจะเด้งกลับไปจุดเริ่มต้นที่ลากมา</li>
+            </ul>
+<pre class="code-snippet"><code>public void OnDrag(PointerEventData eventData)
+{
+    if (isPlaced) return;
+
+    float scaleFactor = canvas != null ? canvas.scaleFactor : 1f;
+    rectTransform.anchoredPosition += eventData.delta / scaleFactor;
+}</code></pre>
+
+            <h3 style="color: var(--accent-secondary); margin-top: 3rem; margin-bottom: 1rem; font-size: 1.5rem;">3. QTE (Quick Time Event) / Skill Check System</h3>
+            <p class="project-text">
+                ผมพัฒนาระบบ QTE ในรูปแบบหน้าปัดหมุน โดยคำนวณการเดินของเข็ม (Needle Rotation) เชิงคณิตศาสตร์ผ่าน <code>Time.unscaledDeltaTime</code> โค้ดถูกวางโครงสร้างด้วย <strong>Event-Driven</strong> คอยส่ง Event (<code>OnSuccess</code> / <code>OnFail</code>) ทำให้โมดูลนี้ทำงานเป็นอิสระ สามารถนำไปเชื่อมต่อกับระบบอื่นในเกม (เช่น ปลดล็อคประตู, ซ่อมของ) ได้ทันทีแบบ Decoupled System
+                <br><br>
+                นอกจากนี้ยังควบคุมการสุ่มขนาด (Size) และจุดเกิดเป้าหมายแบบไดนามิก รองรับการคำนวณข้ามเส้นวงกลม (360-degree Wrap-around Logic) ทำให้เป็นระบบสุ่มปฏิกิริยาที่ท้าทายผู้เล่น
+            </p>
+            <div style="margin-bottom: 1.5rem; text-align: center;">
+                <video width="100%" controls style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <source src="Image/The Silence/QTE.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div style="margin-bottom: 1.5rem; text-align: center;">
+                <img src="Image/The Silence/The Silence2.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+<pre class="code-snippet"><code>void CheckResult()
+{
+    float zoneEnd = zoneStart + zoneSize;
+    bool success;
+
+    if (zoneEnd <= 360f)
+    {
+        success = currentAngle >= zoneStart && currentAngle <= zoneEnd;
+    }
+    else
+    {
+        success = currentAngle >= zoneStart || currentAngle <= (zoneEnd % 360f);
+    }
+
+    if (success)
+    {
+        Debug.Log("SKILL CHECK: SUCCESS!");
+        if (successSound != null && audioSource != null)
+            audioSource.PlayOneShot(successSound, sfxVolume);
+        OnSuccess?.Invoke();
+    }
+    else
+    {
+        Debug.Log("SKILL CHECK: FAIL!");
+        if (failSound != null && audioSource != null)
+            audioSource.PlayOneShot(failSound, sfxVolume);
+        OnFail?.Invoke();
+    }
+}</code></pre>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-secondary); margin-top: 4rem;">
+        <p>&copy; 2026 Pasawee. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

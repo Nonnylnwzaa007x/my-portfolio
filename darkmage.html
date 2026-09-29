@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkMage - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav>
+        <div class="logo">Game<span>Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="project-header" style="background-image: url('Image/DarkMage/DarkMage.png');">
+        <div class="project-header-content">
+            <span class="project-role-badge">Solo Developer</span>
+            <h1 class="project-title">DarkMage</h1>
+            <a href="index.html#projects" class="btn btn-outline" style="background: rgba(0,0,0,0.5);">&larr; กลับหน้าหลัก</a>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="project-grid-layout">
+            <!-- Left Column: Details -->
+            <div class="project-main-info fade-in">
+                <h2 class="project-section-title">Overview</h2>
+                <p class="project-text">
+                    เกมนี้เป็นเกมแนว <strong>Endless Runner 2D</strong> ที่ให้ผู้เล่นรับบทเป็น DarkMage คอยสังหาร Monster ไปเรื่อยๆ เพื่อเก็บคะแนนให้ได้มากที่สุด
+                    <br><br>
+                    <strong>Solo Project:</strong> เป็นโปรเจกต์ที่ผมได้เริ่มทดลองสร้างเกม 2D ด้วยตัวเองคนเดียว โดยรับผิดชอบพัฒนาระบบทุกส่วน (Core Systems) ด้วยตนเอง ไม่ว่าจะเป็น Player Controller, Enemy AI, การจัดการ UI, รวมถึงการสร้าง Particle FX ด้วย Particle System โดยใช้ Open Source Assets นำมาประกอบกัน
+                </p>
+
+
+                
+                <!-- Extra Images Gallery -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+                    <img src="Image/DarkMage/DarkMage1.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                    <img src="Image/DarkMage/DarkMage2.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                    <img src="Image/DarkMage/DarkMage3.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); grid-column: span 2;">
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar Info -->
+            <div class="project-sidebar fade-in">
+                <div class="sidebar-item">
+                    <h4>Role</h4>
+                    <p style="color: var(--text-primary);">Solo Developer<br>(Programmer, FX, Integration)</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Technologies</h4>
+                    <div class="tech-stack" style="flex-wrap: wrap;">
+                        <span>Unity 3D</span>
+                        <span>C#</span>
+                        <span>Particle System</span>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Genre</h4>
+                    <p style="color: var(--text-primary);">2D Endless Runner</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Components Section -->
+        <div class="code-section fade-in">
+            <h2 class="project-section-title">Player Scripts & Components</h2>
+            <ul class="feature-list" style="margin-bottom: 2rem;">
+                <li><strong>Player Controller & Combat:</strong> จัดการระบบควบคุมตัวละคร (Movement) และการโจมตี (Shooting) รวมถึงสร้างเอฟเฟกต์การยิงต่างๆ</li>
+                <li><strong>Player Health & Damage System:</strong> จัดการเลือด (HP) ระบบตรวจสอบการชน (TakeDamage) เมื่อชนกับวัตถุที่มี Tag "Obstacle" และอัปเดต UI แบบ Real-time</li>
+                <li><strong>Invincibility Frames (I-Frames) & Feedback:</strong> เมื่อผู้เล่นโดนโจมตี จะมีระบบอมตะชั่วคราว พร้อมสั่งให้ตัวละครกะพริบปิด-เปิด SpriteRenderer แจ้ง AudioManager เพื่อเล่นเสียงโดนตี และเรียกใช้ Camera Shake เพื่อเพิ่มแรงสั่นสะเทือนบนหน้าจอ</li>
+                <li><strong>Player Bounds (Screen Limits):</strong> เขียนระบบความปลอดภัยตรวจเช็คแกน X, Y ทุกๆ <code>Update()</code> เพื่อป้องกันไม่ให้ผู้เล่นหลุดออกนอกกรอบจอ (ทะลุค่า minX, maxX, minY, maxY)</li>
+            </ul>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; justify-content: center; align-items: flex-start;">
+                <!-- Column 1 -->
+                <div style="flex: 1 1 250px; max-width: 320px; display: flex; flex-direction: column; gap: 1.5rem;">
+                    <img src="Image/DarkMage/DarkMageComponent.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                </div>
+                <!-- Column 2 -->
+                <div style="flex: 1 1 250px; max-width: 320px; display: flex; flex-direction: column; gap: 1.5rem;">
+                    <img src="Image/DarkMage/DarkMageComponent1.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <img src="Image/DarkMage/DarkMageComponent2.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                </div>
+                <!-- Column 3 -->
+                <div style="flex: 1 1 250px; max-width: 320px; display: flex; flex-direction: column; gap: 1.5rem;">
+                    <img src="Image/DarkMage/DarkMageComponent3.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Game Developer. Designed with passion.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

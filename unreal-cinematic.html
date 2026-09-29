@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinematic Sequencer - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav>
+        <div class="logo">Game<span>Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="project-header" style="background-image: url('Image/Unreal/Game/Cinematic/Cinematic.png'); background-position: center top;">
+        <div class="project-header-content">
+            <h1 class="project-title">Cinematic Sequencer</h1>
+            <a href="index.html#projects" class="btn btn-outline" style="background: rgba(0,0,0,0.5);">&larr; กลับหน้าหลัก</a>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="code-section fade-in">
+            <p class="project-text">
+                ใช้ Cinematic Sequencer ใน Unreal Engine เพื่อสร้าง Animation Timeline โดยออกแบบลำดับภาพ ให้มีการเล่าเรื่องอย่างเป็นระบบ ตั้งแต่การวางมุมกล้อง Camera Composition / Camera Movementและการ Animate Object/Character ผ่าน Keyframe
+            </p>
+            <div style="margin-bottom: 3rem; text-align: center;">
+                <img src="Image/Unreal/Game/Cinematic/Cinematic1.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+
+            <p class="project-text">
+                ใช้งาน Cine Camera Actor โดยปรับตั้งค่าพารามิเตอร์ให้สอดคล้องกับเลนส์กล้องในโลกความเป็นจริง เช่น ระยะโฟกัส รูรับแสง และระยะชัดลึก เพื่อให้ได้ภาพที่มีมิติแบบภาพยนตร์
+            </p>
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <img src="Image/Unreal/Game/Cinematic/Cinematic2.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+
+            <p class="project-text">
+                จัดการคิวภาพและการตัดสลับมุมกล้องต่างๆ ภายในซีนอย่างต่อเนื่องผ่าน Camera Cuts Track ช่วยให้สามารถพรีวิวผลลัพธ์ของโปรดักชันได้แบบ Real-time โดยไม่ต้องพึ่งพาโปรแกรมตัดต่อภายนอก
+            </p>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

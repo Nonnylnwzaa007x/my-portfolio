@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shark Frenzy - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav>
+        <div class="logo">Game<span>Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="project-header" style="background-image: url('Image/Frenzy Shark/Shark.jpg');">
+        <div class="project-header-content">
+            <span class="project-role-badge">Gameplay Programmer</span>
+            <h1 class="project-title">Shark Frenzy</h1>
+            <a href="index.html#projects" class="btn btn-outline" style="background: rgba(0,0,0,0.5);">&larr; กลับหน้าหลัก</a>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="project-grid-layout">
+            <!-- Left Column: Details -->
+            <div class="project-main-info fade-in">
+                <h2 class="project-section-title">Overview</h2>
+                <p class="project-text">
+                    เกมนี้เป็นเกมแนว Simulation Endless ตัวเกมจะจำลองผู้เล่นเป็นฉลามใต้ท้องทะเล 
+                    โดยมีกลไกหลักคือความหิว (HP จะลดลงเรื่อยๆ ตลอดเวลาที่เริ่มเกม) 
+                    ผู้เล่นจำเป็นต้องว่ายน้ำล่าปลาไปเรื่อยๆ เพื่อฟื้นฟู HP และทำคะแนน พร้อมหลบหลีกอุปสรรคอย่างระเบิดใต้น้ำ 
+                    ผมได้รับหน้าที่ในการพัฒนา Core Gameplay System หลักทั้งหมด รวมถึงระบบเสียงและ Leaderboard ออนไลน์
+                </p>
+
+                <h2 class="project-section-title" style="margin-top: 3rem;">Key Systems Developed</h2>
+                <ul class="feature-list">
+                    <li><strong>Player Movement:</strong> พัฒนาระบบควบคุมการว่ายน้ำของฉลามแบบ 3 มิติ (Omni-directional) ว่ายได้ทุกทิศทางด้วย Rigidbody Physics พร้อมระบบพุ่งตัว (Sprint) เร่งความเร็วเมื่อกด Shift</li>
+                    <li><strong>Stamina & UI:</strong> สร้างระบบ Stamina สำหรับพุ่งตัว โดยใช้ Coroutine ในการประมวลผล Delay ก่อนฟื้นฟูอัตโนมัติ พร้อมทำระบบ UI (StaminaBar/HealthBar) แยกออกมาและใช้ <code>Mathf.Lerp</code> ทำให้หลอดพลังงานไหลลื่นไม่กระตุก</li>
+                    <li><strong>Hunger System (HP):</strong> ดัดแปลงระบบเลือดให้เป็นความหิว เลือดจะลดลงอย่างต่อเนื่อง และลดเมื่อชนอุปสรรค (ระเบิด) ผู้เล่นต้องล่าปลาเพื่อเพิ่มเลือดกลับมา เป็น Game Loop ที่ช่วยกระตุ้นความตื่นตัว</li>
+                    <li><strong>Score & Backend:</strong> ทำระบบเก็บคะแนนเมื่อกินปลา และพัฒนาระบบ Leaderboard ระดับโลกโดยเชื่อมต่อกับฐานข้อมูลออนไลน์ (Backend Integration) ผ่าน <strong>Firebase API</strong> รวมถึงใช้ <code>PlayerPrefs</code> เป็นแผนสำรองบนเครื่อง</li>
+                    <li><strong>Audio System:</strong> ควบคุมระบบเสียงในเกม เช่น เสียงเพลงประกอบ, เสียงบรรยากาศใต้ทะเล, เสียงกัด, และเสียงระเบิด</li>
+                </ul>
+                
+                <!-- Extra Images Gallery -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+                    <img src="Image/Frenzy Shark/Shark1.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                    <img src="Image/Frenzy Shark/Shark2.png" style="width:100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar Info -->
+            <div class="project-sidebar fade-in">
+                <div class="sidebar-item">
+                    <h4>Role</h4>
+                    <p style="color: var(--text-primary);">Gameplay Programmer</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Technologies</h4>
+                    <div class="tech-stack" style="flex-wrap: wrap;">
+                        <span>Unity 3D</span>
+                        <span>C#</span>
+                        <span>Firebase API</span>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Genre</h4>
+                    <p style="color: var(--text-primary);">Simulation / Endless Survival</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Section -->
+        <div class="code-section fade-in">
+            <h2 class="project-section-title">Challenges & Solutions</h2>
+            <p class="project-text">
+                <strong>การว่ายน้ำสามมิติ และระบบ UI แบบ Smooth:</strong> เพื่อให้การเคลื่อนที่ของฉลามตอบสนองทันที ผมเลือกใช้ <code>ForceMode.VelocityChange</code> ใน Rigidbody และเขียนตรรกะจำกัดความเร็ว (Velocity Clamping) เพื่อไม่ให้ฉลามพุ่งแรงจนหลุดการควบคุม<br><br>
+                นอกจากนี้ การอัปเดต UI เช่นหลอดเลือดหรือ Stamina มักจะมีปัญหาตัวเลขกระโดดข้าม ทำให้ดูแข็งกระด้าง ผมจึงแยกส่วนประมวลผล UI ออกมาและใช้ <code>Mathf.Lerp</code> ร่วมกับ <code>Time.deltaTime</code> เพื่อให้หลอดลดหรือเพิ่มอย่างสมูธ
+            </p>
+            
+            <h3 style="color: var(--text-primary); margin: 2rem 0 1rem 0;">ตัวอย่างโค้ด Logic: Movement & Velocity Clamping</h3>
+            <pre class="code-snippet"><code><span class="code-keyword">private void</span> <span class="code-function">MyInput</span>() {
+    horizontalInput = <span class="code-type">Input</span>.<span class="code-function">GetAxisRaw</span>(<span class="code-string">"Horizontal"</span>);
+    verticalInput = <span class="code-type">Input</span>.<span class="code-function">GetAxisRaw</span>(<span class="code-string">"Vertical"</span>);
+    
+    <span class="code-comment">// ตรวจสอบการกดปุ่มวิ่ง (Sprint)</span>
+    <span class="code-keyword">if</span> (<span class="code-type">Input</span>.<span class="code-function">GetKey</span>(<span class="code-type">KeyCode</span>.LeftShift) && currentStamina > <span class="code-number">0</span>) {
+        moveSpeed = runSpeed;
+    } <span class="code-keyword">else</span> {
+        moveSpeed = walkSpeed;
+    }
+}
+
+<span class="code-keyword">private void</span> <span class="code-function">LimitSpeed</span>() {
+    <span class="code-comment">// ดึงความเร็วแนวราบ (X, Z) ของ Rigidbody</span>
+    <span class="code-type">Vector3</span> flatVelocity = <span class="code-keyword">new</span> <span class="code-type">Vector3</span>(rb.linearVelocity.x, <span class="code-number">0f</span>, rb.linearVelocity.z);
+    
+    <span class="code-comment">// จำกัดความเร็วไม่ให้เกิน moveSpeed</span>
+    <span class="code-keyword">if</span> (flatVelocity.magnitude > moveSpeed) {
+        <span class="code-type">Vector3</span> limitedVelocity = flatVelocity.normalized * moveSpeed;
+        rb.linearVelocity = <span class="code-keyword">new</span> <span class="code-type">Vector3</span>(limitedVelocity.x, rb.linearVelocity.y, limitedVelocity.z);
+    }
+}</code></pre>
+
+            <h3 style="color: var(--text-primary); margin: 3rem 0 1rem 0;">ตัวอย่างโค้ด Logic: Smooth UI Update & Stamina Regen</h3>
+            <pre class="code-snippet"><code><span class="code-comment">// UI Smoothing Example</span>
+<span class="code-keyword">private void</span> <span class="code-function">Update</span>() {
+    <span class="code-keyword">if</span> (staminaSlider != <span class="code-keyword">null</span>) {
+        staminaSlider.value = <span class="code-type">Mathf</span>.<span class="code-function">Lerp</span>(staminaSlider.value, currentStamina, <span class="code-type">Time</span>.deltaTime * smoothSpeed);
+    }
+}
+
+<span class="code-comment">// Stamina Regeneration with Delay using Coroutine</span>
+<span class="code-keyword">private</span> <span class="code-type">IEnumerator</span> <span class="code-function">RegenerateStaminaWithDelay</span>() {
+    isRegenerating = <span class="code-keyword">true</span>;
+    <span class="code-keyword">yield return new</span> <span class="code-type">WaitForSeconds</span>(regenDelay);
+    
+    <span class="code-keyword">while</span> (currentStamina &lt; maxStamina && canRegenerateStamina) {
+        currentStamina += staminaRecoveryRate * <span class="code-type">Time</span>.deltaTime;
+        currentStamina = <span class="code-type">Mathf</span>.<span class="code-function">Clamp</span>(currentStamina, <span class="code-number">0</span>, maxStamina);
+        <span class="code-keyword">yield return null</span>;
+    }
+    
+    isRegenerating = <span class="code-keyword">false</span>;
+}</code></pre>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Game Developer. Designed with passion.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

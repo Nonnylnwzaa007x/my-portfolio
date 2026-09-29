@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Developer Portfolio</title>
+    <meta name="description" content="Portfolio of a Game Developer showcasing games, projects, and skills.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav>
+        <div class="logo">Game<span>Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="hero premium-hero">
+            <div class="hero-content">
+                <div class="hero-badge">Game Developer & Programmer</div>
+                <h1 class="title">พศวีร์<span> พัศดร</span></h1>
+                <p class="description">เปลี่ยนจินตนาการให้กลายเป็นระบบเกมที่สมบูรณ์แบบ<br>เชี่ยวชาญด้าน <strong>Gameplay Programming</strong> และ <strong>Core Systems</strong><br>พร้อมสร้างสรรค์ประสบการณ์การเล่นที่ท้าทายและลื่นไหล</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">Explore Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-showcase">
+                <div class="showcase-container">
+                    <div class="sc-card sc-card-3" style="background-image: url('Image/Frenzy Shark/Shark.jpg');"></div>
+                    <div class="sc-card sc-card-2" style="background-image: url('Image/Rampage/ram.jpg');"></div>
+                    <div class="sc-card sc-card-1" style="background-image: url('Image/DarkMage/DarkMage.png');"></div>
+                </div>
+            </div>
+</div>
+        </section>
+
+        <section id="about" class="about section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <!-- Profile Image Placeholder -->
+                <div class="about-image fade-in">
+                    <div class="profile-frame">
+                        <img src="Image/ME/Me3.jpg" alt="Profile Picture" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'100%\'><rect width=\'100%\' height=\'100%\' fill=\'%231a1a24\'/><text x=\'50%\' y=\'50%\' fill=\'%238b5cf6\' font-family=\'sans-serif\' font-size=\'16\' font-weight=\'bold\' text-anchor=\'middle\' dominant-baseline=\'middle\'>ใส่รูปของคุณที่นี่</text></svg>'">
+                    </div>
+                </div>
+                
+                <div class="about-text fade-in">
+                    <p style="line-height: 1.8;">ผมเป็นนักศึกษาผู้หลงใหลใน <strong>Game Development</strong> มีพื้นฐานภาษา <strong>C#</strong> ในการพัฒนาระบบเกม พร้อมประสบการณ์ฝึกงานที่ <strong>Click Next</strong> เป็นเวลา 5 เดือน</p>
+                    <p style="line-height: 1.8;">ผมสามารถทำงานร่วมกับทีมได้ดี พร้อมเปิดรับคำแนะนำ และมุ่งมั่นพัฒนาตัวเองสู่การเป็น <strong>Game Developer</strong> ที่สร้างเกมคุณภาพและตอบโจทย์ผู้เล่นจริง</p>
+                </div>
+                <div class="skills fade-in">
+                    <h3>Core Skills</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Unity 3D</span>
+                        <span class="tag">Unreal Engine</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Blue Print</span>
+                        <span class="tag">Game Design</span>
+                        <span class="tag">Level Design</span>
+                        <span class="tag">UI Design</span>
+                        <span class="tag">Performance Optimization</span>
+                    </div>
+                </div>
+            </div>
+</div>
+        </section>
+
+        <section id="projects" class="projects section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-tabs" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem;">
+                <button class="btn btn-primary tab-btn" onclick="showProjects('unity')">Unity Engine</button>
+                <button class="btn btn-outline tab-btn" onclick="showProjects('unreal')">Unreal Engine</button>
+            </div>
+            <div class="projects-slider-wrapper" style="overflow: hidden; width: 100%; padding-bottom: 1rem;">
+            <div class="projects-slider-track" id="projects-track" style="display: flex; width: 200%; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
+                <div class="project-grid" id="unity-projects" style="width: 50%; flex-shrink: 0; padding: 0 10px;">
+                <!-- Project 1 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/Sim11.png');"></div>
+                    <div class="project-info">
+                        <h3>SIM11: VR Career Simulation</h3>
+                        <p style="margin-bottom: 0.5rem;">เกม VR จำลองอาชีพแห่งอนาคต พัฒนาให้กับ NSM เพื่อให้ผู้เล่นได้สัมผัสประสบการณ์การทำงานที่สมจริง</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>พัฒนาระบบเกมเพลย์และจำลองสถานการณ์อาชีพ (เช่น วิศวกรพลังงาน, เกษตรอัจฉริยะ)</li>
+                            <li>ปรับแต่ง VFX และ Shader เพิ่มความสมจริง (Hologram, Dissolve)</li>
+                            <li>วางระบบมิติเสียง (Spatial Audio) และการโต้ตอบของตัวละครหุ่นยนต์</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unity 3D</span>
+                            <span>C#</span>
+                            <span>VR</span>
+                        </div>
+                        <a href="sim11.html" class="btn btn-outline">รายละเอียด</a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/Nuclear.png');"></div>
+                    <div class="project-info">
+                        <h3>Nuclear Scientist</h3>
+                        <p style="margin-bottom: 0.5rem;">สื่อการเรียนรู้เชิงโต้ตอบ (Interactive Multimedia) ที่จำลองกลไกฟิสิกส์นิวเคลียร์ให้เข้าใจง่ายผ่านการเล่นเกม</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>เขียนกลไกจำลองปฏิกิริยาลูกโซ่ของยูเรเนียม (U235) และวงโคจรอิเล็กตรอน</li>
+                            <li>พัฒนาระบบหลักของมินิเกมและการโต้ตอบต่างๆ ภายในโลก VR</li>
+                            <li>เขียนระบบพฤติกรรมวัตถุ เช่น การติดตามเป้าหมาย (Homing) และการลอยตัว</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unity 3D</span>
+                            <span>C#</span>
+                            <span>VR</span>
+                        </div>
+                        <a href="nuclear.html" class="btn btn-outline">รายละเอียด</a>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/Para.png');"></div>
+                    <div class="project-info">
+                        <h3>Paramedic VR Rescue</h3>
+                        <p style="margin-bottom: 0.5rem;">ระบบ VR จำลองสถานการณ์ฉุกเฉินทางการแพทย์ ให้ผู้เล่นรับบทบาทเป็นหน่วยกู้ชีพที่ต้องทำงานแข่งกับเวลา</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>พัฒนาระบบการหยิบจับและใช้งานอุปกรณ์ทางการแพทย์ในโลก VR</li>
+                            <li>เขียนระบบประเมินผลผู้เล่นตามขั้นตอนการปฐมพยาบาล (Emergency Protocol)</li>
+                            <li>ออกแบบ UI และระบบเสียงที่สร้างความกดดันให้สมจริงกับการกู้ชีพ</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unity 3D</span>
+                            <span>C#</span>
+                            <span>VR</span>
+                        </div>
+                        <a href="paramedic.html" class="btn btn-outline">รายละเอียด</a>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/Rampage/ram.jpg');"></div>
+                    <div class="project-info">
+                        <h3>The Rampage</h3>
+                        <p style="margin-bottom: 0.5rem;">เกม 2D Action Hack'n Slash เอาชีวิตรอดในวันสิ้นโลก พัฒนาด้วย Monogame Framework</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>พัฒนาระบบ Player Controller (วิ่ง, กระโดด, พุ่งตัว, โจมตีด้วยสกิล) ร่วมกับ 2D Sprite Animation</li>
+                            <li>เขียน AI ศัตรู (ซอมบี้, หมึก) และระบบบอส (Malraku) ที่มีการจัดการ Hitbox และ State การโจมตี</li>
+                            <li>สร้างระบบบริหารฉาก เช่น Parallax Scrolling Background, Camera Tracking และ Cutscene</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Monogame</span>
+                            <span>C#</span>
+                            <span>2D Game</span>
+                        </div>
+                        <a href="rampage.html" class="btn btn-outline">รายละเอียด</a>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/Frenzy Shark/Shark.jpg');"></div>
+                    <div class="project-info">
+                        <h3>Shark Frenzy</h3>
+                        <p style="margin-bottom: 0.5rem;">เกมแนว Simulation Endless จำลองการเอาชีวิตรอดของฉลามใต้ท้องทะเล</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>พัฒนาระบบ 3D Omni-directional Movement ควบคุมฉลามด้วย Rigidbody</li>
+                            <li>สร้างระบบความหิว (Hunger System) และ Stamina พร้อม UI ที่ลื่นไหล (Mathf.Lerp)</li>
+                            <li>เชื่อมต่อ Leaderboard แบบออนไลน์ผ่าน Firebase API</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unity 3D</span>
+                            <span>C#</span>
+                            <span>Firebase</span>
+                        </div>
+                        <a href="shark-frenzy.html" class="btn btn-outline">รายละเอียด</a>
+                    </div>
+                </div>
+                <!-- Project 6 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/DarkMage/DarkMage.png');"></div>
+                    <div class="project-info">
+                        <h3>DarkMage</h3>
+                        <p style="margin-bottom: 0.5rem;">เกม Endless Runner รับบทเป็น DarkMage สังหารมอนสเตอร์เพื่อเก็บคะแนน (Solo Project)</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>สร้างระบบเกมด้วยตัวเองทั้งหมด (Player Controller, Enemy AI)</li>
+                            <li>ระบบ TakeDamage, Invincibility Frames (I-Frames) และ Camera Shake</li>
+                            <li>ระบบอัปเดต UI และสร้าง Particle FX ต่างๆ ภายในเกม</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unity 3D</span>
+                            <span>C#</span>
+                            <span>2D Game</span>
+                        </div>
+                        <a href="darkmage.html" class="btn btn-outline">รายละเอียด</a>
+                    </div>
+                </div>
+                <!-- Project 7 -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/The\ Silence/The\ Silence.png');"></div>
+                    <div class="project-info">
+                        <h3>The Silence</h3>
+                        <p style="margin-bottom: 0.5rem;">เกม Horror Survival FPS ที่เน้นเล่นกับความกลัวและความหลอนประสาทของผู้เล่น</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>พัฒนาระบบ Puzzle (Drag & Drop UI) และ Skill Check (QTE)</li>
+                            <li>แพ็ก Player Prefab ควบคุม First-Person Camera และระบบ Interactive</li>
+                            <li>ออกแบบเสียงและ Sound Mixing สำหรับเพิ่มความสยองขวัญ</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unity 3D</span>
+                            <span>C#</span>
+                            <span>FPS</span>
+                        </div>
+                        <a href="thesilence.html" class="btn btn-outline">อ่านเพิ่มเติม</a>
+                    </div>
+                </div>
+            </div> <!-- End unity-projects -->
+
+            <!-- Start unreal-projects -->
+            <div class="project-grid" id="unreal-projects" style="width: 50%; flex-shrink: 0; padding: 0 10px;">
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/Unreal/VFX/Portal/Portal.png'); background-size: cover; background-position: center;"></div>
+                    <div class="project-info">
+                        <h3>Niagara VFX Portal</h3>
+                        <p style="margin-bottom: 0.5rem;">ระบบเอฟเฟกต์พลังงาน Portal จำลองของไหล 3 มิติ (3D Fluid Simulation) ทำงานแบบ Real-time บน GPU</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>คำนวณ Pressure และ Velocity Advection ผ่าน 3D Gas Grid</li>
+                            <li>แสดงผลด้วย Volume Renderer ให้มวลพลังงานมีมิติสมจริง</li>
+                            <li>แปลงข้อมูล Particle Data เป็นแหล่งกำเนิดของเหลวเพื่อส่งเข้า 3D Grid</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unreal Engine</span>
+                            <span>Niagara</span>
+                            <span>VFX</span>
+                        </div>
+                        <a href="unreal-vfx.html" class="btn btn-outline">อ่านเพิ่มเติม</a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/Unreal/VFX/Fire/Fire.png'); background-size: cover; background-position: center;"></div>
+                    <div class="project-info">
+                        <h3>Multi-layered Fire VFX</h3>
+                        <p style="margin-bottom: 0.5rem;">ระบบเอฟเฟกต์ไฟแบบแยกเลเยอร์ (Multi-layered Emitters) ควบคุมพฤติกรรมได้อย่างอิสระ</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>แยกส่วนประกอบ Flames, Smoke และ Ember อย่างชัดเจน</li>
+                            <li>เขียน Custom Material ควบคุม Distortion และ Emissive</li>
+                            <li>ใช้ Open-source สร้าง Base Texture เพิ่ม Pipeline Efficiency</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unreal Engine</span>
+                            <span>Niagara</span>
+                            <span>VFX</span>
+                        </div>
+                        <a href="unreal-fire.html" class="btn btn-outline">อ่านเพิ่มเติม</a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/Unreal/VFX/Lightning/Lightning.png'); background-size: cover; background-position: top;"></div>
+                    <div class="project-info">
+                        <h3>Character Lightning VFX</h3>
+                        <p style="margin-bottom: 0.5rem;">ระบบเอฟเฟกต์กระแสไฟฟ้าวิ่งตามตัวละครด้วย Skeletal Mesh Data Interface</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>สร้างเอฟเฟกต์สายฟ้าหลาย Layer (Lightning Beams, Sparks)</li>
+                            <li>ผสาน VFX เข้ากับ Animation Montage ด้วย Anim Notifies</li>
+                            <li>ใช้ Skeletal Mesh Data Interface ให้เอฟเฟกต์วิ่งตามกระดูก</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unreal Engine</span>
+                            <span>Niagara</span>
+                            <span>VFX</span>
+                        </div>
+                        <a href="unreal-lightning.html" class="btn btn-outline">อ่านเพิ่มเติม</a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/Unreal/VFX/PostProcess/PostProcess.png'); background-size: cover; background-position: top;"></div>
+                    <div class="project-info">
+                        <h3>Lighting PostProcess Landscape</h3>
+                        <p style="margin-bottom: 0.5rem;">การนำไปใช้กับ Environment Design</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>ใช้ Post Process เพื่อ กำหนด identity ของ scene</li>
+                            <li>ออกแบบ environment โดย เวลา และ อารมณ์ตั้งแต่ต้น</li>
+                            <li>คุมโทนสีให้ทั้ง scene ไปในทิศทางเดียว</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unreal Engine</span>
+                            <span>Lighting</span>
+                            <span>PostProcess</span>
+                        </div>
+                        <a href="unreal-lighting.html" class="btn btn-outline">อ่านเพิ่มเติม</a>
+                    </div>
+                </div>
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('Image/Unreal/Game/Cinematic/Cinematic.png'); background-size: cover; background-position: top;"></div>
+                    <div class="project-info">
+                        <h3>Cinematic Sequencer</h3>
+                        <p style="margin-bottom: 0.5rem;">การเล่าเรื่องอย่างเป็นระบบด้วยมุมกล้องและ Animation Timeline</p>
+                        <ul style="color: var(--text-secondary); font-size: 0.85rem; padding-left: 1.2rem; margin-bottom: 1.5rem; line-height: 1.4;">
+                            <li>สร้าง Animation Timeline และการวางมุมกล้องผ่าน Keyframe</li>
+                            <li>ใช้งาน Cine Camera Actor ปรับพารามิเตอร์ให้สมจริง</li>
+                            <li>ตัดสลับมุมกล้องและพรีวิวแบบ Real-time ด้วย Camera Cuts Track</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span>Unreal Engine</span>
+                            <span>Cinematic</span>
+                        </div>
+                        <a href="unreal-cinematic.html" class="btn btn-outline">อ่านเพิ่มเติม</a>
+                    </div>
+                </div>
+            </div> <!-- End unreal-projects -->
+        </div> <!-- End track -->
+        </div> <!-- End wrapper -->
+        </section>
+
+        <section id="contact" class="contact section">
+            <h2 class="section-title">Level Up Your Team</h2>
+            <div class="contact-container fade-in">
+                <p>Currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open!</p>
+                <a href="mailto:hello@example.com" class="btn btn-primary btn-large">Say Hello</a>
+                <div class="social-links">
+                    <a href="#">Itch.io</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+</div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Game Developer. Designed with passion.</p>
+    </footer>
+
+    <script src="script.js"></script>
+<script>
+    function showProjects(type) {
+        const track = document.getElementById('projects-track');
+        if (!track) return;
+        if (type === 'unity') {
+            track.style.transform = 'translateX(0%)';
+        } else {
+            track.style.transform = 'translateX(-50%)';
+        }
+        
+        let btns = document.querySelectorAll('.tab-btn');
+        if(btns.length >= 2) {
+            btns[0].className = type === 'unity' ? 'btn btn-primary tab-btn' : 'btn btn-outline tab-btn';
+            btns[1].className = type === 'unreal' ? 'btn btn-primary tab-btn' : 'btn btn-outline tab-btn';
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
