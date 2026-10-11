@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melee Combat System - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <nav>
+        <div class="logo">Game<span>Dev</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="project-header" style="background-image: url('Image/Unreal/Game/Cinematic/Combat/Bp_Animation_Combo.png'); background-position: center;">
+        <div class="project-header-content">
+            <span class="project-role-badge">Gameplay Programmer</span>
+            <h1 class="project-title">Melee Combat System</h1>
+            <a href="index.html#projects" class="btn btn-outline" style="background: rgba(0,0,0,0.5);">&larr; กลับหน้าหลัก</a>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <div class="project-grid-layout">
+            <!-- Left Column: Details -->
+            <div class="project-main-info fade-in">
+                <h2 class="project-section-title">Overview</h2>
+                <p class="project-text">
+                    <strong>Melee Combat System</strong> เป็นระบบการต่อสู้ระยะประชิดที่พัฒนาขึ้นบน <strong>Unreal Engine 5</strong> โดยเน้นความลื่นไหลและจังหวะการตอบสนองที่แม่นยำ (Responsive Combat Flow) 
+                    <br><br>
+                    ระบบถูกสร้างขึ้นผ่าน <strong>Blueprints</strong> ผสานการทำงานร่วมกับ <strong>Enhanced Input</strong>, <strong>Animation Blueprint</strong> และ <strong>Anim Notifies</strong> เพื่อควบคุมจังหวะคอมโบ, การตรวจจับฮิตบ็อกซ์อาวุธแบบ Trace, การตั้งการ์ดป้องกัน (Block/Deflect) ตลอดจนระบบ AI ศัตรูที่มีการสุ่มจังหวะการโจมตีและโต้ตอบดาเมจแบบสมบูรณ์
+                </p>
+
+                <h2 class="project-section-title" style="margin-top: 3rem;">Core Features</h2>
+                <ul class="feature-list">
+                    <li><strong>Combo Attack Chain:</strong> ระบบโจมตีต่อเนื่อง 4 สเต็ป ควบคุมด้วยตัวแปรนับคอมโบและป้องกันการกดปุ่มซ้ำซ้อน</li>
+                    <li><strong>Anim Notify Timing Window:</strong> ใช้ Notify เปิด-ปิดช่วงเวลากดต่อคอมโบ (AllowCombo) และรีเซ็ตคอมโบเมื่อหมดจังหวะ (ResetCombo)</li>
+                    <li><strong>Weapon Trace Collision:</strong> ตรวจจับการชนของอาวุธด้วย Multi Sphere Trace จากพิกัด Socket พร้อมระบบคัดกรองฮิตไม่ให้ดาเมจซ้ำในครั้งเดียว</li>
+                    <li><strong>Block & Deflect System:</strong> ระบบยกการ์ดป้องกันผ่าน Enhanced Input และควบคุมผ่าน Dynamic Montage</li>
+                    <li><strong>Damage, Stun & Death Logic:</strong> คำนวณหักลบพลังชีวิต, เล่นท่า Hit Reaction, สถานะสตั๊นหน่วงเวลา 1.5 วินาที และลำดับการตายที่ปิดการเคลื่อนไหวสมบูรณ์</li>
+                    <li><strong>Enemy AI Combat Behavior:</strong> AI ศัตรูที่มีการเช็คสถานะสตั๊น สุ่มรูปแบบท่าโจมตี และส่งดาเมจโต้ตอบผู้เล่น</li>
+                </ul>
+
+                <!-- Gameplay Showcase Video -->
+                <h2 class="project-section-title" style="margin-top: 3rem;">Gameplay Showcase</h2>
+                <div style="margin-top: 1.5rem;">
+                    <video width="100%" controls style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                        <source src="Image/Unreal/Game/Cinematic/Combat/1011.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Right Column: Sidebar Info -->
+            <div class="project-sidebar fade-in">
+                <div class="sidebar-item">
+                    <h4>Role</h4>
+                    <p style="color: var(--text-primary);">Gameplay Programmer</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Technologies</h4>
+                    <div class="tech-stack" style="flex-wrap: wrap;">
+                        <span>Unreal Engine 5</span>
+                        <span>Blueprints</span>
+                        <span>Enhanced Input</span>
+                        <span>Animation Montage</span>
+                        <span>Anim Notify</span>
+                        <span>Sphere Trace</span>
+                    </div>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Genre</h4>
+                    <p style="color: var(--text-primary);">Third-Person Action / Melee Combat</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Implementation Details -->
+        <div class="code-section fade-in">
+            <h2 class="project-section-title">Blueprint Architecture & Mechanics</h2>
+
+            <!-- 1. Combo Attack System -->
+            <h3 style="color: var(--accent-secondary); margin-bottom: 1rem; font-size: 1.5rem;">1. Player Combo Attack System</h3>
+            <p class="project-text">
+                โครงสร้างฟังก์ชัน <code>Try Attacking</code> เพื่อจัดการคำสั่งโจมตีของผู้เล่น โดยตรวจสอบเงื่อนไข <code>Can Attack?</code> ก่อนทำการล็อกสถานะเพื่อไม่ให้อนิเมชันโจมตีถูกสั่งซ้ำขณะกำลังออกท่า จากนั้นส่งค่า <code>Com Bo Count</code> เข้าไปยัง Node <code>Select</code> เพื่อเลือกเล่นท่าโจมตีที่กำหนดไว้ (Attack A - D) ผ่าน <code>Montage Play</code> พร้อมบวกนับสเต็ปคอมโบและวนลูปกลับเมื่อครบ 4 สเต็ป
+            </p>
+            <div style="margin-bottom: 3.5rem; text-align: center;">
+                <img src="Image/Unreal/Game/Cinematic/Combat/Bp_Animation_Combo.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+
+            <!-- 2. Animation Blueprint & Combo Timing -->
+            <h3 style="color: var(--accent-secondary); margin-bottom: 1rem; font-size: 1.5rem;">2. Animation Blueprint & Timing Window</h3>
+            <p class="project-text">
+                การจัดการภายใน Animation Blueprint โดยแคสต์เก็บ Reference ของตัวละครและ Character Movement ตั้งแต่ช่วง Initialize ส่วนในลูป Update จะคำนวณเวกเตอร์ความเร็วของตัวละครส่งเข้าตัวแปร <code>Speed</code> และมีหัวใจสำคัญคือการผูก Event Anim Notifies:
+            </p>
+            <ul class="feature-list" style="margin-bottom: 1.5rem;">
+                <li><code>AnimNotify_AllowCombo:</code> ทำงาน ณ เฟรมที่เปิดโอกาสให้ผู้เล่นกดคลิกเพื่อส่งคำสั่งคอมโบสเต็ปถัดไปล่วงหน้า (ตั้งค่า <code>Can Attack? = true</code>)</li>
+                <li><code>AnimNotify_ResetCombo:</code> ทำงานเมื่อแอนิเมชันสิ้นสุดโดยไม่มีการกดต่อคอมโบ เพื่อรีเซ็ต <code>Com Bo Count = 0</code> กลับสู่ท่าเตรียมพร้อมเริ่มต้น</li>
+            </ul>
+            <div style="margin-bottom: 3.5rem; text-align: center;">
+                <img src="Image/Unreal/Game/Cinematic/Combat/Screenshot 2026-10-11 214703.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+
+            <!-- 3. Weapon Hitbox Trace -->
+            <h3 style="color: var(--accent-secondary); margin-bottom: 1rem; font-size: 1.5rem;">3. Weapon Hitbox & Collision Detection</h3>
+            <p class="project-text">
+                ระบบตรวจจับการฟันของอาวุธโดยใช้ <code>AnimNotifyState</code> (ผ่านฟังก์ชัน <code>Received_NotifyTick</code>) เพื่อทำการ Trace เฉพาะจังหวะที่คมอาวุธเคลื่อนที่ในอากาศ โดยดึงตำแหน่ง Socket หัว-ท้ายของอาวุธมาสร้างเป็นเส้น <code>Multi Sphere Trace For Objects</code> เมื่อตรวจพบการชนจะนำผลลัพธ์จาก <code>Break Hit Result</code> มาตรวจสอบผ่าน Array เพื่อป้องกันไม่ให้เกิดความเสียหายซ้ำหลายฮิตต่อศัตรูตัวเดิมในการฟันครั้งเดียว ก่อนจะส่งคำสั่ง <code>Apply Damage</code>
+            </p>
+            <div style="margin-bottom: 3.5rem; text-align: center;">
+                <img src="Image/Unreal/Game/Cinematic/Combat/Screenshot 2026-10-11 002601.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+
+            <!-- 4. Block & Deflect Mechanics -->
+            <h3 style="color: var(--accent-secondary); margin-bottom: 1rem; font-size: 1.5rem;">4. Enhanced Input: Block & Deflect</h3>
+            <p class="project-text">
+                ระบบการควบคุมผ่าน <strong>Enhanced Input System</strong> โดยผูกคำสั่ง <code>IA_Block</code>:
+            </p>
+            <ul class="feature-list" style="margin-bottom: 1.5rem;">
+                <li>เมื่อกดปุ่มบล็อก (Started): เซ็ตสถานะ <code>Is Blocking = true</code> และสั่งเล่นแอนิเมชันตั้งการ์ดปัดป้อง <code>Deflect_InPlace</code> แบบวนลูปผ่าน Slot Animation</li>
+                <li>เมื่อปล่อยปุ่มบล็อก (Completed): สั่ง <code>Stop Slot Animation</code> เพื่อยุติแอนิเมชันทันทีและรีเซ็ตสถานะ <code>Is Blocking = false</code></li>
+            </ul>
+            <div style="margin-bottom: 3.5rem; text-align: center;">
+                <img src="Image/Unreal/Game/Cinematic/Combat/BP_AiMove.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+
+            <!-- 5. Damage, Hit Reaction, Stun & Death -->
+            <h3 style="color: var(--accent-secondary); margin-bottom: 1rem; font-size: 1.5rem;">5. Damage, Hit Reaction, Stun & Death Logic</h3>
+            <p class="project-text">
+                การรับความเสียหายผ่าน Event <code>AnyDamage</code> โดยตรวจสอบสถานะว่าตัวละครยังมีชีวิตอยู่หรือไม่ ก่อนจะคำนวณหักลบพลังชีวิต <code>Health</code> และสั่งเล่น <code>Play Anim Montage (HitReact_Back)</code> เพื่อให้เกิดแรงสะท้อนตามจริง จากนั้นประมวลผลต่อด้วย Sequence:
+            </p>
+            <ul class="feature-list" style="margin-bottom: 1.5rem;">
+                <li><strong>Death Check:</strong> หาก <code>Health <= 0</code> จะปรับสถานะ <code>Is Dead = true</code>, สั่ง <code>Stop Movement Immediately</code>, เล่นแอนิเมชันตาย (Death) และสั่งซ่อน Widget หลอดเลือด</li>
+                <li><strong>Stun Reaction:</strong> หากยังไม่ตาย จะสั่งเปิดสถานะ <code>Is Stunned = true</code> หน่วงเวลาด้วย Retriggerable Delay 1.5 วินาที ทำให้ศัตรูชะงักเปิดโอกาสให้ผู้เล่นโจมตีซ้ำ</li>
+            </ul>
+            <div style="margin-bottom: 1.5rem; text-align: center;">
+                <img src="Image/Unreal/Game/Cinematic/Combat/Screenshot 2026-10-11 224834.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-bottom: 1.5rem;">
+                <img src="Image/Unreal/Game/Cinematic/Combat/Screenshot 2026-10-11 224848.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+
+            <!-- 6. Enemy AI Attack Behavior -->
+            <h3 style="color: var(--accent-secondary); margin-bottom: 1rem; font-size: 1.5rem; margin-top: 3.5rem;">6. Enemy AI Attack Behavior</h3>
+            <p class="project-text">
+                ระบบพฤติกรรม AI ในการโจมตี โดยตรวจสอบเงื่อนไขไม่ให้โจมตีหากติดสถานะสตั๊น (<code>NOR Is Stunned</code>) จากนั้นสุ่มท่าโจมตีผ่าน <code>Random Integer in Range (0-3)</code> เข้า Node <code>Select</code> เพื่อเลือกแอนิเมชันโจมตีที่แตกต่างกันออกไป เมื่อออกท่าจะสั่ง <code>Apply Damage</code> (Base Damage 10.0) ส่งไปยังตัวละครผู้เล่น (<code>Get Player Character</code>) และมี Delay ควบคุมจังหวะคูลดาวน์ก่อนจะพร้อมโจมตีในรอบถัดไป
+            </p>
+            <div style="margin-bottom: 1.5rem; text-align: center;">
+                <img src="Image/Unreal/Game/Cinematic/Combat/Screenshot 2026-10-11 224918.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            </div>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-secondary); margin-top: 4rem;">
+        <p>&copy; 2026 Game Developer. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
