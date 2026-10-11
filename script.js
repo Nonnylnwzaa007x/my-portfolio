@@ -195,3 +195,33 @@ function resetHeroInterval() {
 if(heroSlides.length > 0) {
     heroSlideInterval = setInterval(nextHeroSlide, 5000);
 }
+
+// Ensure functions are globally accessible
+window.nextHeroSlide = nextHeroSlide;
+window.prevHeroSlide = prevHeroSlide;
+
+// Attach event listeners directly as well
+function initHeroSliderButtons() {
+    const prevBtn = document.querySelector('.hero .prev-btn');
+    const nextBtn = document.querySelector('.hero .next-btn');
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevHeroSlide();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextHeroSlide();
+        });
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroSliderButtons);
+} else {
+    initHeroSliderButtons();
+}
