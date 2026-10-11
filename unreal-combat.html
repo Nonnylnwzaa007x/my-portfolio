@@ -143,12 +143,13 @@
                 <img src="Image/Unreal/Game/Cinematic/Combat/Screenshot 2026-10-11 224848.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
             </div>
 
-            <!-- 6. Enemy AI Attack Behavior -->
-            <h3 style="color: var(--accent-secondary); margin-bottom: 1rem; font-size: 1.5rem; margin-top: 3.5rem;">6. Enemy AI Attack Behavior</h3>
+            <!-- 6. Enemy AI Detection, Movement & Attack Behavior -->
+            <h3 style="color: var(--accent-secondary); margin-bottom: 1rem; font-size: 1.5rem; margin-top: 3.5rem;">6. Enemy AI Detection, Movement & Attack Behavior</h3>
             <p class="project-text">
-                ระบบพฤติกรรม AI ในการโจมตี โดยตรวจสอบเงื่อนไขไม่ให้โจมตีหากติดสถานะสตั๊น (<code>NOR Is Stunned</code>) จากนั้นสุ่มท่าโจมตีผ่าน <code>Random Integer in Range (0-3)</code> เข้า Node <code>Select</code> เพื่อเลือกแอนิเมชันโจมตีที่แตกต่างกันออกไป เมื่อออกท่าจะสั่ง <code>Apply Damage</code> (Base Damage 10.0) ส่งไปยังตัวละครผู้เล่น (<code>Get Player Character</code>) และมี Delay ควบคุมจังหวะคูลดาวน์ก่อนจะพร้อมโจมตีในรอบถัดไป
+                ระบบพฤติกรรม AI แบบครบวงจร ตั้งแต่การตรวจจับผู้เล่นผ่านคอมโพเนนต์ <code>PawnSensing</code> (Event <code>On See Pawn</code>) โดยตรวจสอบเงื่อนไขว่า AI ไม่อยู่ในสถานะตาย, กำลังโจมตี หรือติดสตั๊น (<code>NOR Is Dead, Is Attacking, Is Stunned</code>) ก่อนสั่ง <code>AI MoveTo</code> วิ่งไล่ตามพิกัดของผู้เล่น เมื่อเข้าสู่ระยะโจมตี (Acceptance Radius 100) จะตั้งค่า <code>Is Attacking = true</code> และสุ่มท่าโจมตีผ่าน <code>Random Integer in Range (0-3)</code> เข้า Node <code>Select</code> เพื่อเลือกแอนิเมชันโจมตีที่แตกต่างกันออกไป พร้อมส่งคำสั่ง <code>Apply Damage</code> (Base Damage 10.0) ไปยังตัวละครผู้เล่น (<code>Get Player Character</code>) และมี Delay ควบคุมจังหวะคูลดาวน์ก่อนจะพร้อมเข้าสู่ลูปโจมตีรอบถัดไป
             </p>
             <div style="margin-bottom: 1.5rem; text-align: center;">
+                <img src="Image/Unreal/Game/Cinematic/Combat/Screenshot 2026-10-11 224905.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-bottom: 1.5rem;">
                 <img src="Image/Unreal/Game/Cinematic/Combat/Screenshot 2026-10-11 224918.png" style="max-width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
             </div>
         </div>
