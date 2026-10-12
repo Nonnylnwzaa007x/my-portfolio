@@ -138,8 +138,37 @@
 
             <h3 style="color: var(--text-primary); margin: 3rem 0 1rem 0;">3. ระบบคัดแยกผู้ป่วยและการจัดการไอเทมใน VR (Triage & Item Handling)</h3>
             <p class="project-text">
-                ออกแบบระบบคัดแยกผู้ป่วย (Triage System) แบบแยกส่วน (Decoupled) เพื่อให้จัดการเคสผู้ป่วยและอุปกรณ์ปฐมพยาบาลได้หลากหลาย พร้อมเพิ่มระบบอำนวยความสะดวกในโลก VR หากผู้เล่นทำอุปกรณ์หล่นกลางอากาศ วัตถุจะเด้งกลับเข้ากระเป๋าพยาบาลโดยอัตโนมัติ ช่วยให้ผู้เล่นในงานนิทรรศการเล่นได้อย่างต่อเนื่อง โดยไม่ต้องก้มลงไปเก็บของบนพื้น
+                <strong>ปัญหา:</strong> ผู้เล่นในงานนิทรรศการมักทำอุปกรณ์ปฐมพยาบาลหลุดมือตกพื้น ทำให้ต้องก้มลงเก็บซึ่งเสี่ยงต่อการชนสิ่งกีดขวางในโลกจริง และทำให้โฟกัสการเล่นสะดุด<br>
+                <strong>วิธีแก้:</strong> ออกแบบระบบคัดแยกผู้ป่วย (Triage System) แบบแยกส่วน (Decoupled) ร่วมกับระบบ <code>AutoReturnItem</code> เพื่อตรวจจับการปล่อยมือ หากอุปกรณ์ถูกทิ้งไว้นอกโซนใช้งานหรือไม่ถูกหยิบเกินเวลาที่กำหนด วัตถุจะรีเซ็ตแรงเฉื่อยและเด้งกลับเข้ากระเป๋าพยาบาลอัตโนมัติ ช่วยให้เล่นได้อย่างต่อเนื่องโดยไม่ต้องก้มเก็บของบนพื้น
             </p>
+            <pre class="code-snippet"><code><span class="code-comment">// ระบบดึงอุปกรณ์กลับกระเป๋าพยาบาลอัตโนมัติเมื่อทำหล่น</span>
+<span class="code-keyword">public class</span> <span class="code-type">AutoReturnItem</span> : <span class="code-type">MonoBehaviour</span> {
+    [SerializeField] <span class="code-keyword">private</span> <span class="code-type">Transform</span> _pouchAnchor;
+    [SerializeField] <span class="code-keyword">private</span> <span class="code-type">float</span> _returnDelay = <span class="code-number">2.0f</span>;
+    <span class="code-keyword">private</span> <span class="code-type">Rigidbody</span> _rb;
+    <span class="code-keyword">private</span> <span class="code-type">bool</span> _isHeld;
+
+    <span class="code-keyword">void</span> <span class="code-function">Awake</span>() => _rb = <span class="code-function">GetComponent</span>&lt;<span class="code-type">Rigidbody</span>&gt;();
+
+    <span class="code-keyword">public void</span> <span class="code-function">OnItemGrabbed</span>() => _isHeld = <span class="code-keyword">true</span>;
+
+    <span class="code-keyword">public void</span> <span class="code-function">OnItemReleased</span>() {
+        _isHeld = <span class="code-keyword">false</span>;
+        <span class="code-function">StartCoroutine</span>(<span class="code-function">ReturnToPouchRoutine</span>());
+    }
+
+    <span class="code-keyword">private</span> <span class="code-type">IEnumerator</span> <span class="code-function">ReturnToPouchRoutine</span>() {
+        <span class="code-keyword">yield return new</span> <span class="code-type">WaitForSeconds</span>(_returnDelay);
+
+        <span class="code-comment">// หากผู้เล่นไม่ได้ถืออยู่ ให้หยุดแรงเคลื่อนที่แล้วส่งกลับกระเป๋า</span>
+        <span class="code-keyword">if</span> (!_isHeld && _pouchAnchor != <span class="code-keyword">null</span>) {
+            _rb.linearVelocity = <span class="code-type">Vector3</span>.zero;
+            _rb.angularVelocity = <span class="code-type">Vector3</span>.zero;
+            transform.position = _pouchAnchor.position;
+            transform.rotation = _pouchAnchor.rotation;
+        }
+    }
+}</code></pre>
         </div>
     </main>
 
