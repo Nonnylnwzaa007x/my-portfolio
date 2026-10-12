@@ -32,17 +32,18 @@
             <div class="project-main-info fade-in">
                 <h2 class="project-section-title">Overview</h2>
                 <p class="project-text">
-                    ระบบ VR จำลองสถานการณ์ฉุกเฉินทางการแพทย์และอุบัติเหตุหมู่ (Mass Casualty Incident - MCI) โดยให้ผู้เล่นรับบทบาทเป็นนักปฏิบัติการฉุกเฉินการแพทย์ (Paramedic) 
-                    ที่ต้องทำงานแข่งกับเวลา ณ จุดเกิดเหตุ โดยเน้นความสมจริงตามหลักการแพทย์สากล ทั้งการประเมินคัดแยกผู้ป่วย (START Triage Protocol), 
-                    การปฐมพยาบาลเบื้องต้น, การกู้ชีพด้วย CPR และการรายงานสถานการณ์ผ่านวิทยุสื่อสาร
+                    เกม VR จำลองสถานการณ์ฉุกเฉินทางการแพทย์ โดยให้ผู้เล่นรับบทบาทเป็นหน่วยกู้ชีพ (Paramedic) เข้าไปช่วยเหลือผู้บาดเจ็บ ณ จุดเกิดเหตุ 
+                    ผู้เล่นจะได้เรียนรู้และปฏิบัติตามขั้นตอนการกู้ชีพจริง ทั้งการประเมินคัดแยกความรุนแรงของผู้ป่วย (Triage), การปฐมพยาบาลเบื้องต้น, การกดหน้าอกทำ CPR และการใช้วิทยุสื่อสารรายงานสถานการณ์
+                    <br><br>
+                    ในโปรเจกต์นี้ผมได้รับหน้าที่พัฒนาระบบ Gameplay และการตอบสนองในโลก VR (VR Interactions) ทั้งหมด เพื่อให้ผู้เล่นได้สัมผัสขั้นตอนการกู้ชีพที่สมจริงและใช้งานง่าย
                 </p>
 
                 <h2 class="project-section-title" style="margin-top: 3rem;">Key Features</h2>
                 <ul class="feature-list">
-                    <li><strong>Biomechanical CPR Simulation:</strong> จำลองการทำ CPR โดยคำนวณระยะกดหน้าอกจากระยะโน้มศีรษะ (Head Dip Depth) และตำแหน่งมือ พร้อมคำนวณอัตราความเร็ว Real-time BPM</li>
-                    <li><strong>START Triage System:</strong> วางโครงสร้างสถาปัตยกรรมแบบ Modular คัดแยกผู้ป่วย 4 ระดับ (สีเขียว: บาดเจ็บเล็กน้อย, สีเหลือง: บาดเจ็บปานกลางต้องปฐมพยาบาล, สีดำ: เสียชีวิต, สีแดง: วิกฤตฉุกเฉิน)</li>
-                    <li><strong>Natural VR Interactions (NUI):</strong> ระบบวิทยุสื่อสารจำลองการตรวจจับระยะปาก (Mouth Proximity) เพื่อพูดรายงานศูนย์ และระบบ Gaze Raycast จ้องมองเพื่อพรีวิวข้อมูลเคสผู้ป่วย</li>
-                    <li><strong>VR Ergonomics & QoL:</strong> ระบบเสกแท็กริบบิ้นไม่จำกัดในกระเป๋าพยาบาล (Infinite Dispenser) และระบบส่งของเด้งกลับกระเป๋าอัตโนมัติเมื่อทำหล่นกลางอากาศ</li>
+                    <li><strong>CPR Simulation:</strong> จำลองการทำ CPR ปั๊มหัวใจ โดยตรวจจับตำแหน่งมือและการทิ้งน้ำหนักตัว พร้อมคำนวณอัตราความเร็วการกด (BPM) แบบ Real-time</li>
+                    <li><strong>Triage System:</strong> พัฒนาระบบประเมินและคัดแยกผู้ป่วยตามระดับความเร่งด่วน พร้อมการติดแท็กริบบิ้นแยกสี (เขียว, เหลือง, แดง, ดำ) เพื่อส่งต่อการรักษา</li>
+                    <li><strong>Radio Communication:</strong> ระบบวิทยุสื่อสารจำลองที่ตรวจจับระยะ เมื่อผู้เล่นยกวิทยุขึ้นมาจ่อใกล้ปากและกดพูด จึงจะสามารถรายงานสถานการณ์ได้</li>
+                    <li><strong>VR Item Handling:</strong> ออกแบบการหยิบใช้อุปกรณ์ปฐมพยาบาลในกระเป๋าอย่างเป็นธรรมชาติ พร้อมระบบดึงไอเทมกลับเข้ากระเป๋าอัตโนมัติเมื่อทำหล่น</li>
                 </ul>
                 <div style="margin-top: 2rem;">
                     <img src="Image/Para.png" style="width: 100%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
@@ -60,7 +61,7 @@
                     <div class="tech-stack" style="flex-wrap: wrap;">
                         <span>Unity 6</span>
                         <span>C#</span>
-                        <span>Meta XR SDK (ISDK)</span>
+                        <span>Meta XR SDK</span>
                         <span>URP</span>
                     </div>
                 </div>
@@ -69,8 +70,8 @@
                     <p style="color: var(--text-primary);">Meta Quest (Standalone VR)</p>
                 </div>
                 <div class="sidebar-item">
-                    <h4>Project Type</h4>
-                    <p style="color: var(--text-primary);">NSM Interactive Museum Exhibition</p>
+                    <h4>Genre</h4>
+                    <p style="color: var(--text-primary);">VR Simulation / Medical Training</p>
                 </div>
             </div>
         </div>
@@ -79,10 +80,10 @@
         <div class="code-section fade-in">
             <h2 class="project-section-title">Challenges & Solutions</h2>
             
-            <h3 style="color: var(--text-primary); margin: 2rem 0 1rem 0;">1. การจำลองการกดหน้าอกทำ CPR บน Standalone VR</h3>
+            <h3 style="color: var(--text-primary); margin: 2rem 0 1rem 0;">1. การจำลองการกดหน้าอกทำ CPR ในโลก VR</h3>
             <p class="project-text">
-                <strong>ปัญหา:</strong> บน Standalone VR คอนโทรลเลอร์หรือ Hand Tracking ไม่มีแรงต้าน (No rigid pushback) หากใช้ Collision ปกติ ผู้เล่นจะก้มกดทะลุตัวผู้ป่วย และไม่สามารถประเมินแรงกดและจังหวะปั๊มหัวใจที่ถูกต้องได้<br>
-                <strong>วิธีแก้:</strong> ออกแบบระบบ <code>CPRController</code> โดยผสานการเช็คตำแหน่งมือให้อยู่ในโซนหน้าอก ร่วมกับ <strong>Biomechanical Depth Tracking</strong> โดยตรวจจับระยะการโน้มตัวของศีรษะ (Head Anchor Dip &ge; 0.05m) เพราะเวลาคนทำ CPR จริงจะต้องทิ้งน้ำหนักตัวลง พร้อมคำนวณค่า Real-time BPM (60 / &Delta;t) และใส่ Debounce ป้องกันการนับเบิ้ล
+                <strong>ปัญหา:</strong> อุปกรณ์ VR ไม่มีแรงต้านทานทางกายภาพ (Force Feedback) หากใช้การตรวจจับการชน (Collision) ทั่วไป มือจะกดทะลุตัวผู้ป่วย และไม่สามารถประเมินแรงกดรวมถึงจังหวะปั๊มหัวใจที่ถูกต้องได้<br>
+                <strong>วิธีแก้:</strong> ออกแบบระบบ <code>CPRController</code> โดยผสานการตรวจจับตำแหน่งมือให้อยู่บนหน้าอก ร่วมกับการตรวจจับการโน้มตัวของผู้เล่น (ระยะการกดต่ำลงของ Headset) เพราะการทำ CPR จริงจะต้องทิ้งน้ำหนักตัวลง พร้อมคำนวณอัตราความเร็วการกด (BPM) แบบ Real-time และใส่ตัวป้องกันการนับซ้ำ (Debounce)
             </p>
             <pre class="code-snippet"><code><span class="code-comment">// Biomechanical CPR Detection & Real-time BPM Calculation</span>
 <span class="code-type">float</span> currentY = _headAnchor.position.y;
@@ -112,10 +113,10 @@
     _baselineY = currentY; <span class="code-comment">// รีเซ็ตความสูงเตรียมรับการกดรอบถัดไป</span>
 }</code></pre>
 
-            <h3 style="color: var(--text-primary); margin: 3rem 0 1rem 0;">2. Natural User Interface (NUI): วิทยุสื่อสารที่ตรวจจับระยะปาก</h3>
+            <h3 style="color: var(--text-primary); margin: 3rem 0 1rem 0;">2. ระบบวิทยุสื่อสารที่ตรวจจับระยะปาก (Walkie-Talkie Interaction)</h3>
             <p class="project-text">
-                <strong>ปัญหา:</strong> การใช้เมนู UI 2D ลอยกลางอากาศทำลายความสมจริงในสถานการณ์ฉุกเฉิน (Breaks Immersion)<br>
-                <strong>วิธีแก้:</strong> พัฒนาระบบ <code>WalkieTalkieController</code> ที่ตรวจจับเงื่อนไขเสมือนจริง: ผู้เล่นต้องถือวิทยุ (Grab), กดปุ่ม PTT (Push-to-Talk) และ <strong>ยกวิทยุขึ้นมาใกล้ปาก</strong> (ตรวจจับระยะห่างกับ <code>CenterEyeAnchor &le; 0.25m</code>) จึงจะเริ่มส่งสัญญาณรายงานศูนย์สั่งการได้ พร้อมระบบ Lerp ดึงวิทยุกลับซองเหน็บเอวอัตโนมัติเมื่อปล่อยมือ
+                <strong>ปัญหา:</strong> การใช้ UI เมนูกดปุ่มทั่วไปทำให้เสียบรรยากาศและความสมจริงในสถานการณ์ฉุกเฉิน<br>
+                <strong>วิธีแก้:</strong> พัฒนาระบบ <code>WalkieTalkieController</code> ตรวจจับเงื่อนไขเสมือนจริง: ผู้เล่นต้องหยิบวิทยุ (Grab), กดปุ่ม Push-to-Talk และ <strong>ยกวิทยุขึ้นมาใกล้ปาก</strong> (ตรวจจับระยะห่างกับ Headset &le; 0.25m) จึงจะเริ่มส่งสัญญาณรายงานศูนย์สั่งการได้ พร้อมระบบดึงวิทยุกลับซองเหน็บเอวอัตโนมัติเมื่อปล่อยมือ
             </p>
             <pre class="code-snippet"><code><span class="code-comment">// ตรวจสอบสถานะส่งสัญญาณวิทยุ (ต้องถือ + กด PTT + ยกจ่อใกล้ปาก)</span>
 <span class="code-type">bool</span> isGrabMet = !_requireGrab || _isGrabbed;
@@ -135,9 +136,9 @@
     }
 }</code></pre>
 
-            <h3 style="color: var(--text-primary); margin: 3rem 0 1rem 0;">3. Modular Triage Framework & VR Quality of Life</h3>
+            <h3 style="color: var(--text-primary); margin: 3rem 0 1rem 0;">3. ระบบคัดแยกผู้ป่วยและการจัดการไอเทมใน VR (Triage & Item Handling)</h3>
             <p class="project-text">
-                ออกแบบสถาปัตยกรรมแบบ Decoupled แยก Logic การประเมินเคสผู้ป่วยผ่าน <code>TriageCase</code> และรวบรวมรายงานด้วย <code>TriageManager</code> รองรับทั้งการแปะแท็กริบบิ้น (Snap Interactable), การส่งมอบอุปกรณ์ปฐมพยาบาล (Specific Item Filter) และการทำ CPR พร้อมระบบกันของหล่นหาย (<code>InfiniteDispenser</code> และ <code>ToggleOnGrabOrSnap</code>) วัตถุที่ปล่อยมือกลางอากาศจะเด้งกลับกระเป๋าอัตโนมัติ ทำให้ผู้เล่นในงานนิทรรศการเล่นได้อย่างลื่นไหล ไม่ต้องก้มเก็บของบนพื้น
+                ออกแบบระบบคัดแยกผู้ป่วย (Triage System) แบบแยกส่วน (Decoupled) เพื่อให้จัดการเคสผู้ป่วยและอุปกรณ์ปฐมพยาบาลได้หลากหลาย พร้อมเพิ่มระบบอำนวยความสะดวกในโลก VR หากผู้เล่นทำอุปกรณ์หล่นกลางอากาศ วัตถุจะเด้งกลับเข้ากระเป๋าพยาบาลโดยอัตโนมัติ ช่วยให้ผู้เล่นในงานนิทรรศการเล่นได้อย่างต่อเนื่อง โดยไม่ต้องก้มลงไปเก็บของบนพื้น
             </p>
         </div>
     </main>
