@@ -42,7 +42,7 @@
                 <ul class="feature-list">
                     <li><strong>CPR Simulation:</strong> จำลองการทำ CPR ปั๊มหัวใจ โดยตรวจจับตำแหน่งมือและการทิ้งน้ำหนักตัว พร้อมคำนวณอัตราความเร็วการกด (BPM) แบบ Real-time</li>
                     <li><strong>Triage System:</strong> พัฒนาระบบประเมินและคัดแยกผู้ป่วยตามระดับความเร่งด่วน พร้อมการติดแท็กริบบิ้นแยกสี (เขียว, เหลือง, แดง, ดำ) เพื่อส่งต่อการรักษา</li>
-                    <li><strong>Radio Communication:</strong> ระบบวิทยุสื่อสารจำลองแบบ Push-to-Talk (PTT) โดยผู้เล่นหยิบวิทยุขึ้นมากดปุ่มส่งสัญญาณรายงานศูนย์สั่งการ และดึงกลับเข้าซองเหน็บเอวอัตโนมัติเมื่อปล่อยมือ</li>
+                    <li><strong>Radio Communication:</strong> ระบบวิทยุสื่อสารจำลองในโลก VR โดยผู้เล่นหยิบวิทยุขึ้นมาเพื่อส่งสัญญาณและรายงานสถานการณ์ฉุกเฉินไปยังศูนย์สั่งการ</li>
                     <li><strong>VR Item Handling:</strong> ออกแบบการหยิบใช้อุปกรณ์ปฐมพยาบาลในกระเป๋าอย่างเป็นธรรมชาติ พร้อมระบบดึงไอเทมกลับเข้ากระเป๋าอัตโนมัติเมื่อทำหล่น</li>
                 </ul>
                 <div style="margin-top: 2rem;">
@@ -112,11 +112,11 @@
     _baselineY = currentY; <span class="code-comment">// รีเซ็ตความสูงเตรียมรับการกดรอบถัดไป</span>
 }</code></pre>
 
-            <h3 style="color: var(--text-primary); margin: 3rem 0 1rem 0;">2. ระบบวิทยุสื่อสารจำลอง (Walkie-Talkie Push-to-Talk & Holster Return)</h3>
+            <h3 style="color: var(--text-primary); margin: 3rem 0 1rem 0;">2. ระบบวิทยุสื่อสารจำลอง (Walkie-Talkie VR Interaction)</h3>
             <p class="project-text">
-                พัฒนาระบบ <code>WalkieTalkieController</code> ให้ตอบสนองอย่างเป็นธรรมชาติในโลก VR โดยผู้เล่นต้องหยิบวิทยุขึ้นมา (Grab) และกดปุ่ม Push-to-Talk (PTT) ค้างไว้เพื่อส่งสัญญาณรายงานศูนย์สั่งการ พร้อมระบบ Lerp ดึงวิทยุกลับเข้าซองเหน็บเอว (Holster) อัตโนมัติทันทีที่ปล่อยมือ ช่วยให้ผู้เล่นโฟกัสกับการกู้ชีพได้อย่างต่อเนื่องโดยไม่ต้องคอยเก็บวิทยุด้วยตัวเอง
+                พัฒนาระบบ <code>WalkieTalkieController</code> ให้ผู้เล่นสามารถมีปฏิสัมพันธ์กับวิทยุสื่อสารในโลก VR ได้อย่างเป็นธรรมชาติ โดยตรวจจับการหยิบจับอุปกรณ์ (Grab Interaction) เพื่อเริ่มส่งสัญญาณวิทยุและนับเวลาการรายงานเคสผู้ป่วยไปยังศูนย์สั่งการ พร้อมผูก Event เข้ากับเสียงวิทยุสื่อสารและลำดับขั้นตอนของสถานการณ์ฉุกเฉิน
             </p>
-            <pre class="code-snippet"><code><span class="code-comment">// ตรวจสอบเงื่อนไขการส่งสัญญาณวิทยุ (ต้องถือ + กดปุ่ม PTT ค้างไว้ตามเวลา)</span>
+            <pre class="code-snippet"><code><span class="code-comment">// ตรวจสอบสถานะและเงื่อนไขการส่งสัญญาณวิทยุสื่อสาร</span>
 <span class="code-type">bool</span> isGrabMet = !_requireGrab || _isGrabbed;
 <span class="code-type">bool</span> isPttMet = !_requirePttButton || _isPttPressed;
 
@@ -124,12 +124,12 @@
     <span class="code-keyword">if</span> (!_isTransmitting) {
         _isTransmitting = <span class="code-keyword">true</span>;
         _transmissionTimer = <span class="code-number">0f</span>;
-        OnTransmissionStarted?.<span class="code-function">Invoke</span>();
+        OnTransmissionStarted?.<span class="code-function">Invoke</span>(); <span class="code-comment">// เริ่มส่งสัญญาณและเล่นเสียงวิทยุ</span>
     }
 
     _transmissionTimer += <span class="code-type">Time</span>.deltaTime;
     <span class="code-keyword">if</span> (_transmissionTimer >= _requiredTransmissionTime) {
-        OnTransmissionCompleted?.<span class="code-function">Invoke</span>(); <span class="code-comment">// ส่งรายงานศูนย์สำเร็จ</span>
+        OnTransmissionCompleted?.<span class="code-function">Invoke</span>(); <span class="code-comment">// ส่งรายงานศูนย์สั่งการสำเร็จ</span>
         <span class="code-function">StopTransmission</span>();
     }
 } <span class="code-keyword">else</span> {
