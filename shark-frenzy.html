@@ -35,7 +35,7 @@
                     เกมนี้เป็นเกมแนว Simulation Endless ตัวเกมจะจำลองผู้เล่นเป็นฉลามใต้ท้องทะเล 
                     โดยมีกลไกหลักคือความหิว (HP จะลดลงเรื่อยๆ ตลอดเวลาที่เริ่มเกม) 
                     ผู้เล่นจำเป็นต้องว่ายน้ำล่าปลาไปเรื่อยๆ เพื่อฟื้นฟู HP และทำคะแนน พร้อมหลบหลีกอุปสรรคอย่างระเบิดใต้น้ำ 
-                    ผมได้รับหน้าที่ในการพัฒนา Core Gameplay System หลักทั้งหมด รวมถึงระบบเสียงและ Leaderboard ออนไลน์
+                    ผมได้รับหน้าที่ในการพัฒนา Core Gameplay System หลักทั้งหมด รวมถึงระบบเสียงภายในเกม
                 </p>
 
                 <h2 class="project-section-title" style="margin-top: 3rem;">Key Systems Developed</h2>
@@ -43,7 +43,7 @@
                     <li><strong>Player Movement:</strong> พัฒนาระบบควบคุมการว่ายน้ำของฉลามแบบ 3 มิติ (Omni-directional) ว่ายได้ทุกทิศทางด้วย Rigidbody Physics พร้อมระบบพุ่งตัว (Sprint) เร่งความเร็วเมื่อกด Shift</li>
                     <li><strong>Stamina & UI:</strong> สร้างระบบ Stamina สำหรับพุ่งตัว โดยใช้ Coroutine ในการประมวลผล Delay ก่อนฟื้นฟูอัตโนมัติ พร้อมทำระบบ UI (StaminaBar/HealthBar) แยกออกมาและใช้ <code>Mathf.Lerp</code> ทำให้หลอดพลังงานไหลลื่นไม่กระตุก</li>
                     <li><strong>Hunger System (HP):</strong> ดัดแปลงระบบเลือดให้เป็นความหิว เลือดจะลดลงอย่างต่อเนื่อง และลดเมื่อชนอุปสรรค (ระเบิด) ผู้เล่นต้องล่าปลาเพื่อเพิ่มเลือดกลับมา เป็น Game Loop ที่ช่วยกระตุ้นความตื่นตัว</li>
-                    <li><strong>Score & Backend:</strong> ทำระบบเก็บคะแนนเมื่อกินปลา และพัฒนาระบบ Leaderboard ระดับโลกโดยเชื่อมต่อกับฐานข้อมูลออนไลน์ (Backend Integration) ผ่าน <strong>Firebase API</strong> รวมถึงใช้ <code>PlayerPrefs</code> เป็นแผนสำรองบนเครื่อง</li>
+                    <li><strong>Score System:</strong> ทำระบบคำนวณและเก็บคะแนนเมื่อกินปลา พร้อมบันทึกคะแนนสูงสุด (High Score) ของผู้เล่น</li>
                     <li><strong>Audio System:</strong> ควบคุมระบบเสียงในเกม เช่น เสียงเพลงประกอบ, เสียงบรรยากาศใต้ทะเล, เสียงกัด, และเสียงระเบิด</li>
                 </ul>
                 
@@ -65,7 +65,7 @@
                     <div class="tech-stack" style="flex-wrap: wrap;">
                         <span>Unity 3D</span>
                         <span>C#</span>
-                        <span>Firebase API</span>
+                        <span>Simulation</span>
                     </div>
                 </div>
                 <div class="sidebar-item">
