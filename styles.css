@@ -15,6 +15,11 @@
     box-sizing: border-box;
 }
 
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
 body {
     font-family: var(--font-main);
     background-color: var(--bg-color);
@@ -357,20 +362,7 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .title {
-        font-size: 3rem;
-    }
-    
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .nav-links {
-        display: none; /* Add a hamburger menu for real implementation */
-    }
-}
+/* Note: Comprehensive responsive styles across all breakpoints are consolidated at the end of this file */
 
 /* Modal Styles */
 .modal {
@@ -952,4 +944,370 @@ body::after {
     background: white;
     color: black;
     border-color: white;
+}
+
+/* ==========================================================================
+   Comprehensive Responsive Breakpoints (PC, Tablet, Mobile)
+   ========================================================================== */
+
+/* 1. Large Tablets & Small Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+    .title {
+        font-size: 3.5rem;
+    }
+    .about-grid {
+        grid-template-columns: 240px 1.4fr 1fr;
+        gap: 2rem;
+    }
+    .project-grid-layout {
+        gap: 2.5rem;
+    }
+    .project-sidebar {
+        padding-left: 2rem;
+    }
+}
+
+/* 2. Tablets & Medium Screens (<= 900px) */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+    .profile-frame {
+        margin: 0 auto 1.5rem auto;
+    }
+    .skills h3 {
+        text-align: center;
+    }
+    .skill-tags {
+        justify-content: center;
+    }
+    .project-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .project-sidebar {
+        border-left: none;
+        border-top: 1px solid var(--card-border);
+        padding: 2rem 0 0 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    .sidebar-item {
+        margin-bottom: 0;
+    }
+}
+
+/* 3. Small Tablets & Large Phones (<= 768px) */
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem 4%;
+    }
+    .logo {
+        font-size: 1.3rem;
+    }
+    .nav-links {
+        display: flex;
+        gap: 1rem;
+    }
+    .nav-links a {
+        font-size: 0.82rem;
+        letter-spacing: 0.5px;
+    }
+    .section {
+        padding: 4.5rem 4%;
+        min-height: auto;
+    }
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .hero {
+        padding: 0 4%;
+        min-height: 100vh;
+    }
+    .title {
+        font-size: 2.6rem;
+    }
+    .description {
+        font-size: 1.05rem;
+    }
+    .slider-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+    .prev-btn { left: 12px; }
+    .next-btn { right: 12px; }
+
+    .project-tabs {
+        gap: 0.8rem;
+        margin-bottom: 2.5rem;
+    }
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+    }
+    .project-image {
+        height: 190px;
+    }
+    .project-info {
+        padding: 1.5rem;
+    }
+    .project-info h3 {
+        font-size: 1.35rem;
+    }
+
+    /* Project Detail Pages */
+    .project-header {
+        height: auto;
+        min-height: 360px;
+        padding: 6.5rem 4% 3rem 4%;
+        background-attachment: scroll;
+    }
+    .project-title {
+        font-size: 2.4rem;
+    }
+    .project-role-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+    .project-content {
+        padding: 3rem 4%;
+    }
+    .project-section-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    .code-section {
+        padding: 2.5rem 1.5rem;
+        border-radius: 14px;
+        margin-top: 3rem;
+    }
+    pre.code-snippet {
+        padding: 2.5rem 1rem 1.2rem 1rem;
+        font-size: 0.85rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 90%;
+        margin: 8% auto;
+        padding: 1.5rem;
+    }
+}
+
+/* 4. Standard Mobile Phones (<= 480px) */
+@media (max-width: 480px) {
+    nav {
+        padding: 0.75rem 3%;
+    }
+    .logo {
+        font-size: 1.15rem;
+    }
+    .nav-links {
+        gap: 0.5rem;
+    }
+    .nav-links a {
+        font-size: 0.72rem;
+        letter-spacing: 0;
+        padding: 0.2rem;
+    }
+    .section {
+        padding: 3.5rem 3%;
+    }
+    .section-title {
+        font-size: 1.7rem;
+        margin-bottom: 1.8rem;
+    }
+
+    /* Hero on Mobile */
+    .hero {
+        padding: 0 3%;
+    }
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.9rem;
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+    }
+    .title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1.2rem;
+    }
+    .slider-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+    .prev-btn { left: 6px; }
+    .next-btn { right: 6px; }
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        width: 100%;
+        max-width: 260px;
+    }
+    .cta-buttons .btn {
+        margin-left: 0 !important;
+        text-align: center;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
+    /* Project Cards on Mobile */
+    .project-tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+    .project-tabs .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .project-image {
+        height: 175px;
+    }
+    .project-info {
+        padding: 1.25rem;
+    }
+    .project-info h3 {
+        font-size: 1.2rem;
+    }
+    .project-info p {
+        font-size: 0.88rem;
+    }
+
+    /* About on Mobile */
+    .profile-frame {
+        width: 180px;
+        height: 180px;
+    }
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    .skills h3 {
+        font-size: 1.25rem;
+    }
+    .tag {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.75rem;
+    }
+
+    /* Contact on Mobile */
+    .contact-container p {
+        font-size: 1.05rem;
+        word-break: break-all;
+    }
+    .social-links {
+        flex-direction: column;
+        gap: 0.9rem;
+        align-items: center;
+        margin-top: 1.8rem;
+    }
+    .social-links a {
+        margin: 0 !important;
+        font-size: 0.95rem;
+    }
+
+    /* Project Detail Pages on Mobile */
+    .project-header {
+        min-height: 280px;
+        padding: 5.5rem 3% 2rem 3%;
+    }
+    .project-title {
+        font-size: 1.7rem;
+        line-height: 1.2;
+        word-break: break-word;
+    }
+    .project-role-badge {
+        font-size: 0.72rem;
+        padding: 0.3rem 0.85rem;
+        margin-bottom: 0.8rem;
+    }
+    .project-content {
+        padding: 2rem 3%;
+    }
+    .project-section-title {
+        font-size: 1.35rem;
+        margin-bottom: 1.2rem;
+    }
+    .project-text {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    .feature-list li {
+        font-size: 0.9rem;
+        padding-left: 1.2rem;
+    }
+    .project-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        padding-top: 1.5rem;
+    }
+    .code-section {
+        padding: 1.5rem 0.8rem;
+        border-radius: 12px;
+        margin-top: 2rem;
+    }
+    pre.code-snippet {
+        padding: 2rem 0.6rem 0.8rem 0.6rem;
+        font-size: 0.74rem;
+        line-height: 1.45;
+        border-radius: 8px;
+    }
+    pre.code-snippet::before {
+        top: 10px;
+        left: 10px;
+        width: 9px;
+        height: 9px;
+        box-shadow: 15px 0 0 #ffbd2e, 30px 0 0 #27c93f;
+    }
+
+    /* Modal on Mobile */
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 1.2rem;
+        border-radius: 8px;
+    }
+    .modal-title {
+        font-size: 1.3rem;
+    }
+    .close-modal {
+        font-size: 24px;
+    }
+}
+
+/* 5. Extra Small Mobile Phones (<= 360px) */
+@media (max-width: 360px) {
+    .title {
+        font-size: 1.65rem;
+    }
+    .project-title {
+        font-size: 1.45rem;
+    }
+    .nav-links a {
+        font-size: 0.68rem;
+    }
+    .slider-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+    .prev-btn { left: 4px; }
+    .next-btn { right: 4px; }
 }
